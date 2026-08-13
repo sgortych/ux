@@ -1,0 +1,15 @@
+:root{
+  --font-sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-brand:"Geomanist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:"Menlo","SF Mono",Consolas,monospace;
+  --editorial-h1-size:40px;--editorial-h1-lh:44px;--editorial-h1-weight:700;
+  --header-h1-size:24px;--header-h1-lh:32px;--header-h1-weight:500;
+  --body-default-size:18px;--body-default-lh:24px;--body-default-weight:400;
+  --ui-label-size:36px;--ui-label-lh:44px;--ui-label-weight:400;
+  --label-size:14px;--label-lh:16px;--label-weight:400;
+}
+.ds-type-editorial-h1{font-family:var(--font-brand);font-weight:var(--editorial-h1-weight);font-size:var(--editorial-h1-size);line-height:var(--editorial-h1-lh);color:var(--text-headings)}
+.ds-type-header-h1{font-family:var(--font-brand);font-weight:var(--header-h1-weight);font-size:var(--header-h1-size);line-height:var(--header-h1-lh);color:var(--text-headings)}
+.ds-type-body-default{font-family:var(--font-brand);font-weight:var(--body-default-weight);font-size:var(--body-default-size);line-height:var(--body-default-lh);color:var(--text-body)}
+.ds-type-label{font-family:var(--font-brand);font-weight:var(--label-weight);font-size:var(--label-size);line-height:var(--label-lh);color:var(--neutral-gray-800)}
+body{font-family:var(--font-brand);color:var(--text-body)}
