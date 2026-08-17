@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Szukaj pracownika — Wirtualna Uczelnia SWPS</title>
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/assets/fonts/fonts.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/tokens/fig-tokens.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/tokens/typography.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/components/overlays/fig-assets.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/components/misc/fig-assets.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/_ds_bundle.js"></script>
+<script src="https://unpkg.com/react-force-graph-2d@1.29.1/dist/react-force-graph-2d.min.js"></script>
+<style>
+*{box-sizing:border-box}
+:root{--bubble-indigo:#6a63e0;--bubble-indigo-dark:#5750c9;--bubble-purple:#8b5cf6;--bubble-hub:#2fb4c9;--bubble-gold:#e0b84b;--bubble-level-0:#AE63E4;--bubble-level-1:#47B9E0;--bubble-level-2:#666FE3}
+body{margin:0;background:var(--surface-subtle,#f7f7f8);font-family:Geomanist,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--text-action,#0a6cb0)}
+a:hover{color:var(--text-action-hover,#095a94)}
+.app{min-height:100vh;display:flex;flex-direction:column;align-items:stretch}
+.nav-wrap{width:100%;overflow-x:auto;scrollbar-width:none}
+.nav-wrap::-webkit-scrollbar{height:0;display:none}
+.nav-wrap>div{min-width:1192px}
+.page{width:100%;max-width:1272px;padding:48px 32px 80px;margin:0 auto;display:flex;flex-direction:column}
+.page-title{font-size:32px;line-height:40px;font-weight:700;color:var(--text-headings,#161616);margin:0 0 28px;text-align:center}
+
+.search-bar{width:100%;max-width:760px;margin:0 auto;display:flex;align-items:center;gap:10px;background:var(--surface-default,#fff);border:1px solid var(--border-form-default,#d9d9de);border-radius:24px;padding:12px 20px;box-shadow:0 1px 6px rgba(0,0,0,0.06)}
+.search-bar input{flex:1;border:none;outline:none;font-size:15px;font-family:inherit;color:var(--text-body,#333);background:transparent}
+.search-icons{display:flex;gap:2px}
+.ghost-icon-btn{width:32px;height:32px;border:none;background:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--icons-assistive,#6b6b70);cursor:pointer}
+.ghost-icon-btn:hover{background:var(--surface-subtle,#f2f2f4)}
+
+.bubble-wrap{position:relative;width:100%;height:230px;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;margin:32px 0 40px;overflow:hidden}
+.bubble-wrap.bubble-fullscreen{position:fixed;inset:0;z-index:1000;margin:0;border-radius:0;height:100vh;width:100vw}
+.bubble-resize-handle{position:absolute;left:0;right:0;bottom:0;height:8px;cursor:ns-resize;z-index:4;display:flex;align-items:center;justify-content:center}
+.bubble-resize-handle::after{content:'';width:36px;height:4px;border-radius:2px;background:var(--neutral-gray-300,#c0c0c0)}
+.bubble-resize-handle:hover::after{background:var(--icons-assistive,#8a8a90)}
+.bubble-tools{position:absolute;top:14px;right:16px;display:flex;gap:8px;z-index:2}
+.icon-btn{width:32px;height:32px;border-radius:6px;border:1px solid var(--border-default,#e2e2e6);background:var(--surface-default,#fff);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
+.icon-btn:hover{background:var(--surface-subtle,#f2f2f4)}
+.bubble-tooltip{position:absolute;transform:translate(-50%,calc(-100% - 14px));background:var(--surface-default,#fff);color:var(--text-body,#161616);border:1px solid var(--border-default,#e2e2e6);border-radius:6px;padding:8px 12px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.15);white-space:nowrap;pointer-events:none;z-index:3}
+
+.results-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border-default,#e2e2e6);padding-bottom:16px;margin-bottom:24px}
+.results-count{font-size:15px;color:var(--text-body,#333)}
+.link-btn{border:none;background:none;color:var(--text-action,#0a6cb0);font-size:14px;cursor:pointer;font-family:inherit;text-decoration:underline;padding:0;margin-left:8px}
+.results-scope{font-size:14px;color:var(--text-assistive,#6b6b70)}
+
+.results-body{display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start}
+.filters-panel{background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;padding:20px}
+.filters-title{font-size:13px;font-weight:700;color:var(--text-assistive,#6b6b70);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
+.filters-title-2{margin-top:20px;padding-top:20px;border-top:1px solid var(--border-default,#e2e2e6)}
+.filters-search{display:flex;align-items:center;gap:8px;border:1px solid var(--border-form-default,#d9d9de);border-radius:6px;padding:8px 10px;margin-bottom:14px}
+.filters-search input{border:none;outline:none;font-size:13px;font-family:inherit;color:var(--text-body,#333);background:transparent;width:100%}
+.filters-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;max-width:760px;margin:16px auto 0}
+.filters-group{display:flex;flex-direction:column;gap:12px}
+.folder-tree{gap:2px}
+.folder-node{display:flex;flex-direction:column}
+.folder-row{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--text-body,#333);cursor:pointer;padding:6px 4px;border-radius:4px}
+.folder-row:hover{background:var(--surface-subtle,#f2f2f4)}
+.folder-row-active{color:var(--blue-blue-500,#0a6cb0)}
+.folder-chevron{display:inline-block;transition:transform .15s;font-size:14px;color:var(--icons-assistive,#8a8a90)}
+.folder-chevron.open{transform:rotate(90deg)}
+.folder-children{display:flex;flex-direction:column;gap:2px}
+.folder-leaf{cursor:pointer;font-weight:400}
+.folder-leaf.folder-row-active{background:var(--surface-information,#e8f2fa)}
+.filter-check{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-body,#333);cursor:pointer}
+.filter-check input{width:16px;height:16px;accent-color:var(--blue-blue-500,#0a6cb0)}
+
+.results-list{display:flex;flex-direction:column;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;overflow:hidden}
+.result-row{display:flex;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border-default,#e2e2e6)}
+.result-row:last-child{border-bottom:none}
+.avatar{border-radius:50%;background:var(--surface-subtle,#eceef0);color:var(--icons-assistive,#8a8a90);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.avatar-lg{width:52px;height:52px}
+.result-main{display:flex;flex-direction:column;gap:6px;min-width:0}
+.result-name{font-size:16px;font-weight:700;color:var(--text-body,#161616)}
+.result-meta{display:flex;flex-wrap:wrap;gap:16px}
+.meta-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-assistive,#6b6b70)}
+.meta-item a{color:var(--text-action,#0a6cb0);text-decoration:none}
+.meta-item a:hover{color:var(--text-action-hover,#095a94)}
+.empty-state{text-align:center;color:var(--text-assistive,#6b6b70);padding:40px;font-size:16px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="employee-data.js"></script>
+<script type="text/babel" data-presets="react" src="app.jsx"></script>
+</body>
+</html>
