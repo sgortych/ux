@@ -1,0 +1,2710 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "assets/icons/**",
+              "components/buttons/**",
+              "components/calendar/**",
+              "components/data-display/**",
+              "components/feedback/**",
+              "components/forms/**",
+              "components/misc/**",
+              "components/navigation/**",
+              "components/overlays/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Geomanist|Inter))/i]",
+        "message": "Font not provided by the design system. Available: Geomanist, Inter."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Accordion'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|items|key|ref|className|style|children)$/]",
+        "message": "<Accordion> doesn't accept that prop. Declared props: className, style, items."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AccordionItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|answer|state|arrow|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<AccordionItem> doesn't accept that prop. Declared props: className, style, answer, state, arrow, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AccordionItem'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<AccordionItem> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ActiveContent'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<ActiveContent> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ActiveIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|hover|type|icon1|key|ref|className|style|children)$/]",
+        "message": "<ActiveIcon> doesn't accept that prop. Declared props: className, style, hover, type, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ActiveIcon'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:clear error|clear|download)$/]",
+        "message": "<ActiveIcon> type must be one of 'clear error' | 'clear' | 'download'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ActiveIcon2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|hover|type|icon1|key|ref|className|style|children)$/]",
+        "message": "<ActiveIcon2> doesn't accept that prop. Declared props: className, style, hover, type, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ActiveIcon2'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:clear|clear error|download)$/]",
+        "message": "<ActiveIcon2> type must be one of 'clear' | 'clear error' | 'download'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Alert'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|alertContent|icon1|key|ref|className|style|children)$/]",
+        "message": "<Alert> doesn't accept that prop. Declared props: className, style, icon, type, alertContent, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Alert'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:warning|success|error|info)$/]",
+        "message": "<Alert> type must be one of 'warning' | 'success' | 'error' | 'info'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AlertCompact'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|alertContent|icon1|key|ref|className|style|children)$/]",
+        "message": "<AlertCompact> doesn't accept that prop. Declared props: className, style, icon, type, alertContent, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AlertCompact'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:warning|success|error|info)$/]",
+        "message": "<AlertCompact> type must be one of 'warning' | 'success' | 'error' | 'info'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AlertPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconHanging|iconInline|buttonsSlotVertical|alertHeader|type|alertHeaderText|buttonsVertical|contentSlotSlot|buttonsHorizontal|buttonsSlotHorizontal|text1|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<AlertPanel> doesn't accept that prop. Declared props: className, style, iconHanging, iconInline, buttonsSlotVertical, alertHeader, type, alertHeaderText, buttonsVertical, contentSlotSlot, buttonsHorizontal, buttonsSlotHorizontal, text1, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AlertPanel'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:info|warning|error|success)$/]",
+        "message": "<AlertPanel> type must be one of 'info' | 'warning' | 'error' | 'success'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|lead|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<ArticleHeader> doesn't accept that prop. Declared props: className, style, lead, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleMeta'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<ArticleMeta> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleMeta'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:article|event)$/]",
+        "message": "<ArticleMeta> type must be one of 'article' | 'event'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleSubtitle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|articleCategories|text1|key|ref|className|style|children)$/]",
+        "message": "<ArticleSubtitle> doesn't accept that prop. Declared props: className, style, articleCategories, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AssetsSidebarLogo'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|lang|key|ref|className|style|children)$/]",
+        "message": "<AssetsSidebarLogo> doesn't accept that prop. Declared props: className, style, lang."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AssetsSidebarLogo'] > JSXAttribute[name.name='lang'] > Literal[value!=/^(?:pl|en)$/]",
+        "message": "<AssetsSidebarLogo> lang must be one of 'pl' | 'en'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AssetsSidebarLogo2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<AssetsSidebarLogo2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AttachedFile'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|thumbnail|text1|key|ref|className|style|children)$/]",
+        "message": "<AttachedFile> doesn't accept that prop. Declared props: className, style, thumbnail, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AudioPlayer'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|volumeAndOptions|state|text1|icon1|icon2|icon3|icon4|key|ref|className|style|children)$/]",
+        "message": "<AudioPlayer> doesn't accept that prop. Declared props: className, style, volumeAndOptions, state, text1, icon1, icon2, icon3, icon4."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AudioPlayer'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|paused mute)$/]",
+        "message": "<AudioPlayer> state must be one of 'default' | 'paused mute'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|iconLeft|size|color|text1|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: className, style, icon, type, iconLeft, size, color, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary|secondary)$/]",
+        "message": "<Badge> type must be one of 'primary' | 'secondary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|sm|xs)$/]",
+        "message": "<Badge> size must be one of 'default' | 'sm' | 'xs'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='color'] > Literal[value!=/^(?:red|neutral|green|teal|white|yellow|assistive|emerald|pink|purple|burgundy|orange)$/]",
+        "message": "<Badge> color must be one of 'red' | 'neutral' | 'green' | 'teal' | 'white' | 'yellow' | 'assistive' | 'emerald' | 'pink' | 'purple' | 'burgundy' | 'orange'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|value|state|key|ref|className|style|children)$/]",
+        "message": "<Badge2> doesn't accept that prop. Declared props: className, style, value, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active|multi select)$/]",
+        "message": "<Badge2> state must be one of 'default' | 'active' | 'multi select'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge3'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|value|state|key|ref|className|style|children)$/]",
+        "message": "<Badge3> doesn't accept that prop. Declared props: className, style, value, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge3'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active|multi select)$/]",
+        "message": "<Badge3> state must be one of 'default' | 'active' | 'multi select'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge4'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|iconLeft|size|color|text1|key|ref|className|style|children)$/]",
+        "message": "<Badge4> doesn't accept that prop. Declared props: className, style, icon, type, iconLeft, size, color, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge4'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary|secondary)$/]",
+        "message": "<Badge4> type must be one of 'primary' | 'secondary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge4'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|sm|xs)$/]",
+        "message": "<Badge4> size must be one of 'default' | 'sm' | 'xs'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge4'] > JSXAttribute[name.name='color'] > Literal[value!=/^(?:red|neutral|green|teal|white|yellow|assistive|emerald|pink|purple|burgundy|orange)$/]",
+        "message": "<Badge4> color must be one of 'red' | 'neutral' | 'green' | 'teal' | 'white' | 'yellow' | 'assistive' | 'emerald' | 'pink' | 'purple' | 'burgundy' | 'orange'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge5'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|value|state|key|ref|className|style|children)$/]",
+        "message": "<Badge5> doesn't accept that prop. Declared props: className, style, value, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge5'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active|multi select)$/]",
+        "message": "<Badge5> state must be one of 'default' | 'active' | 'multi select'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BadgedList'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|itemsSlot|key|ref|className|style|children)$/]",
+        "message": "<BadgedList> doesn't accept that prop. Declared props: className, style, itemsSlot."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BinaryToggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<BinaryToggle> doesn't accept that prop. Declared props: className, style, state, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BinaryToggle'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|yes|no|error)$/]",
+        "message": "<BinaryToggle> state must be one of 'default' | 'yes' | 'no' | 'error'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BinaryToggle2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<BinaryToggle2> doesn't accept that prop. Declared props: className, style, state, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BinaryToggle2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:no|default|yes)$/]",
+        "message": "<BinaryToggle2> state must be one of 'no' | 'default' | 'yes'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BioCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|avatar|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<BioCard> doesn't accept that prop. Declared props: className, style, avatar, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Blockquote'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|author|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<Blockquote> doesn't accept that prop. Declared props: className, style, author, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Breadcrumbs'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|text4|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<Breadcrumbs> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3, text4, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Breadcrumbs'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:2-level|3-level|4-level)$/]",
+        "message": "<Breadcrumbs> type must be one of '2-level' | '3-level' | '4-level'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|type|size|iconRight|label|iconRight2|focusOutline|labelValue|iconLeft2|state|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: className, style, iconLeft, type, size, iconRight, label, iconRight2, focusOutline, labelValue, iconLeft2, state, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary|secondary|tertiary|transparent|transparent neutral|black|category pill|secondary dropdown|secondary badge|destructive|transparent outlined)$/]",
+        "message": "<Button> type must be one of 'primary' | 'secondary' | 'tertiary' | 'transparent' | 'transparent neutral' | 'black' | 'category pill' | 'secondary dropdown' | 'secondary badge' | 'destructive' | 'transparent outlined'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:lg|md|sm|micro|nano)$/]",
+        "message": "<Button> size must be one of 'lg' | 'md' | 'sm' | 'micro' | 'nano'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<Button> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|type|size|iconRight|label|iconRight2|focusOutline|labelValue|iconLeft2|state|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<Button2> doesn't accept that prop. Declared props: className, style, iconLeft, type, size, iconRight, label, iconRight2, focusOutline, labelValue, iconLeft2, state, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button2'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary|secondary|tertiary|transparent|transparent neutral|black|category pill|secondary dropdown|secondary badge)$/]",
+        "message": "<Button2> type must be one of 'primary' | 'secondary' | 'tertiary' | 'transparent' | 'transparent neutral' | 'black' | 'category pill' | 'secondary dropdown' | 'secondary badge'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button2'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:lg|md|sm|micro|nano)$/]",
+        "message": "<Button2> size must be one of 'lg' | 'md' | 'sm' | 'micro' | 'nano'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<Button2> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button3'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|type|size|iconRight|label|iconRight2|focusOutline|labelValue|iconLeft2|state|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<Button3> doesn't accept that prop. Declared props: className, style, iconLeft, type, size, iconRight, label, iconRight2, focusOutline, labelValue, iconLeft2, state, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button3'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:secondary|black|category pill|destructive|primary|secondary badge|secondary dropdown|tertiary|transparent|transparent outlined|transparent neutral)$/]",
+        "message": "<Button3> type must be one of 'secondary' | 'black' | 'category pill' | 'destructive' | 'primary' | 'secondary badge' | 'secondary dropdown' | 'tertiary' | 'transparent' | 'transparent outlined' | 'transparent neutral'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button3'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:md|lg|micro|nano|sm)$/]",
+        "message": "<Button3> size must be one of 'md' | 'lg' | 'micro' | 'nano' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button3'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<Button3> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBordered'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|state|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<ButtonBordered> doesn't accept that prop. Declared props: className, style, icon, type, state, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBordered'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary)$/]",
+        "message": "<ButtonBordered> type must be one of 'primary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBordered'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<ButtonBordered> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBorderless'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|state|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<ButtonBorderless> doesn't accept that prop. Declared props: className, style, icon, type, state, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBorderless'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:primary)$/]",
+        "message": "<ButtonBorderless> type must be one of 'primary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonBorderless'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<ButtonBorderless> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarDay'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|state|text1|key|ref|className|style|children)$/]",
+        "message": "<CalendarDay> doesn't accept that prop. Declared props: className, style, type, state, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarDay'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:day cell|day button)$/]",
+        "message": "<CalendarDay> type must be one of 'day cell' | 'day button'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarDay'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|today|disabled|active|today active)$/]",
+        "message": "<CalendarDay> state must be one of 'default' | 'today' | 'disabled' | 'active' | 'today active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarDeadlineItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|name|icon1|key|ref|className|style|children)$/]",
+        "message": "<CalendarDeadlineItem> doesn't accept that prop. Declared props: className, style, name, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarEmptyDay'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CalendarEmptyDay> doesn't accept that prop. Declared props: className, style, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarTopActionButtons'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|role|key|ref|className|style|children)$/]",
+        "message": "<CalendarTopActionButtons> doesn't accept that prop. Declared props: className, style, role."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarTopActionButtons'] > JSXAttribute[name.name='role'] > Literal[value!=/^(?:student|lecturer)$/]",
+        "message": "<CalendarTopActionButtons> role must be one of 'student' | 'lecturer'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarWidget'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<CalendarWidget> doesn't accept that prop. Declared props: className, style, type, text1, text2, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarWidget'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:student-dydaktyk|administracyjny|empty state)$/]",
+        "message": "<CalendarWidget> type must be one of 'student-dydaktyk' | 'administracyjny' | 'empty state'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarWidgetItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<CalendarWidgetItem> doesn't accept that prop. Declared props: className, style, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Callout'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|key|ref|className|style|children)$/]",
+        "message": "<Callout> doesn't accept that prop. Declared props: className, style, type, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Callout'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:blue|neutral)$/]",
+        "message": "<Callout> type must be one of 'blue' | 'neutral'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardBasic'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<CardBasic> doesn't accept that prop. Declared props: className, style, type, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardBasic'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|strong)$/]",
+        "message": "<CardBasic> type must be one of 'default' | 'strong'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardGeneric'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|content|contentSlot|type|footer|footerSlot|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<CardGeneric> doesn't accept that prop. Declared props: className, style, content, contentSlot, type, footer, footerSlot, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardGeneric'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|cta)$/]",
+        "message": "<CardGeneric> type must be one of 'default' | 'cta'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconsSlot|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CardHeader> doesn't accept that prop. Declared props: className, style, iconsSlot, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeader'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|link|link icon|icon|badge|button)$/]",
+        "message": "<CardHeader> type must be one of 'default' | 'link' | 'link icon' | 'icon' | 'badge' | 'button'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeader2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconsSlot|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CardHeader2> doesn't accept that prop. Declared props: className, style, iconsSlot, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeader2'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|link|link icon|icon|badge|button)$/]",
+        "message": "<CardHeader2> type must be one of 'default' | 'link' | 'link icon' | 'icon' | 'badge' | 'button'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeaderPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|title|type|icon|assistiveText|assistiveTextSlot|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<CardHeaderPanel> doesn't accept that prop. Declared props: className, style, title, type, icon, assistiveText, assistiveTextSlot, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardHeaderPanel'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:md|sm|lg|large subtitle)$/]",
+        "message": "<CardHeaderPanel> type must be one of 'md' | 'sm' | 'lg' | 'large subtitle'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CategoryPill'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<CategoryPill> doesn't accept that prop. Declared props: className, style, property1, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CategoryPill'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:default|variant2)$/]",
+        "message": "<CategoryPill> property1 must be one of 'default' | 'variant2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|selected|state|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: className, style, selected, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|disabled|read only)$/]",
+        "message": "<Checkbox> state must be one of 'default' | 'disabled' | 'read only'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOption'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CheckboxOption> doesn't accept that prop. Declared props: className, style, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOption'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected|selected \\(read-only\\)|type4)$/]",
+        "message": "<CheckboxOption> type must be one of 'empty' | 'selected' | 'selected (read-only)' | 'type4'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionCompact'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CheckboxOptionCompact> doesn't accept that prop. Declared props: className, style, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionCompact'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected)$/]",
+        "message": "<CheckboxOptionCompact> type must be one of 'empty' | 'selected'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionParagraph'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|validationError|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<CheckboxOptionParagraph> doesn't accept that prop. Declared props: className, style, validationError, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionParagraph'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected|selected \\(read-only\\))$/]",
+        "message": "<CheckboxOptionParagraph> type must be one of 'empty' | 'selected' | 'selected (read-only)'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionSlot'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|slot|type|validationError|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<CheckboxOptionSlot> doesn't accept that prop. Declared props: className, style, slot, type, validationError, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxOptionSlot'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected|selected \\(read-only\\))$/]",
+        "message": "<CheckboxOptionSlot> type must be one of 'empty' | 'selected' | 'selected (read-only)'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChevronDown'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<ChevronDown> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ClassCardHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|result|badge|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<ClassCardHeader> doesn't accept that prop. Declared props: className, style, result, badge, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ClassGradePanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|key|ref|className|style|children)$/]",
+        "message": "<ClassGradePanel> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ClassGradePanel'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:positive|negative)$/]",
+        "message": "<ClassGradePanel> type must be one of 'positive' | 'negative'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CollapseControl'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|hover|icon1|key|ref|className|style|children)$/]",
+        "message": "<CollapseControl> doesn't accept that prop. Declared props: className, style, hover, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CollapsedGroup'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|hover|icon1|key|ref|className|style|children)$/]",
+        "message": "<CollapsedGroup> doesn't accept that prop. Declared props: className, style, type, hover, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CollapsedGroup'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:active group item|inactive group item)$/]",
+        "message": "<CollapsedGroup> type must be one of 'active group item' | 'inactive group item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ConflictPlaceholder'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|classesSlot|text1|key|ref|className|style|children)$/]",
+        "message": "<ConflictPlaceholder> doesn't accept that prop. Declared props: className, style, classesSlot, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContactCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|avatar|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<ContactCard> doesn't accept that prop. Declared props: className, style, avatar, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|key|ref|className|style|children)$/]",
+        "message": "<ContentCard> doesn't accept that prop. Declared props: className, style, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentCard'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:basic|content|file|links|documents|deadlines)$/]",
+        "message": "<ContentCard> type must be one of 'basic' | 'content' | 'file' | 'links' | 'documents' | 'deadlines'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentCardSectioned'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|contentSlot|type|buttons|buttonsSlot|alertsSlot|alerts|text1|text2|text3|text4|key|ref|className|style|children)$/]",
+        "message": "<ContentCardSectioned> doesn't accept that prop. Declared props: className, style, contentSlot, type, buttons, buttonsSlot, alertsSlot, alerts, text1, text2, text3, text4."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentCardSectioned'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:simple|complex)$/]",
+        "message": "<ContentCardSectioned> type must be one of 'simple' | 'complex'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Courses'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|text3|text4|key|ref|className|style|children)$/]",
+        "message": "<Courses> doesn't accept that prop. Declared props: className, style, text1, text2, text3, text4."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CursorPointer'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<CursorPointer> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DarkArrow'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<DarkArrow> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DayCell'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|events|type|conflict|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<DayCell> doesn't accept that prop. Declared props: className, style, events, type, conflict, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DayCell'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|today|outside month)$/]",
+        "message": "<DayCell> type must be one of 'default' | 'today' | 'outside month'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DayNavItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|bagde|selected|today|hover|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<DayNavItem> doesn't accept that prop. Declared props: className, style, bagde, selected, today, hover, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DeadlineItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|meta|time|type|place|action|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<DeadlineItem> doesn't accept that prop. Declared props: className, style, meta, time, type, place, action, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DeadlineItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default)$/]",
+        "message": "<DeadlineItem> type must be one of 'default'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DeadlinePopover'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|meta|type|action|date|place|time|text1|key|ref|className|style|children)$/]",
+        "message": "<DeadlinePopover> doesn't accept that prop. Declared props: className, style, meta, type, action, date, place, time, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DeadlinePopover'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:regular|ghost)$/]",
+        "message": "<DeadlinePopover> type must be one of 'regular' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DefaultPagination'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<DefaultPagination> doesn't accept that prop. Declared props: className, style, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DiscriminationTableRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon1|key|ref|className|style|children)$/]",
+        "message": "<DiscriminationTableRow> doesn't accept that prop. Declared props: className, style, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DocumentationHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<DocumentationHeader> doesn't accept that prop. Declared props: className, style, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DocumentsServicesCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|artAndDesign|text1|key|ref|className|style|children)$/]",
+        "message": "<DocumentsServicesCard> doesn't accept that prop. Declared props: className, style, artAndDesign, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DropdownItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|label|type|chevron|state|checkmark|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<DropdownItem> doesn't accept that prop. Declared props: className, style, icon, label, type, chevron, state, checkmark, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DropdownItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|checkbox|radio|label|select item)$/]",
+        "message": "<DropdownItem> type must be one of 'default' | 'checkbox' | 'radio' | 'label' | 'select item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DropdownItem'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<DropdownItem> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DropdownSectionHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<DropdownSectionHeader> doesn't accept that prop. Declared props: className, style, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EmptyState'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|showIcon|iconSlot|title|showDescription|showButtons|description|showSecondaryAction|showPrimaryAction|key|ref|className|style|children)$/]",
+        "message": "<EmptyState> doesn't accept that prop. Declared props: className, style, showIcon, iconSlot, title, showDescription, showButtons, description, showSecondaryAction, showPrimaryAction."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|category|emphasis|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<EventBar> doesn't accept that prop. Declared props: className, style, category, emphasis, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventBar'] > JSXAttribute[name.name='category'] > Literal[value!=/^(?:class|room|exam|duty|diploma|training|saved|deadline)$/]",
+        "message": "<EventBar> category must be one of 'class' | 'room' | 'exam' | 'duty' | 'diploma' | 'training' | 'saved' | 'deadline'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventBar'] > JSXAttribute[name.name='emphasis'] > Literal[value!=/^(?:high|low)$/]",
+        "message": "<EventBar> emphasis must be one of 'high' | 'low'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventCardBig'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|eN|actionButton|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<EventCardBig> doesn't accept that prop. Declared props: className, style, eN, actionButton, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventCardMedium'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|eN|text1|icon2|key|ref|className|style|children)$/]",
+        "message": "<EventCardMedium> doesn't accept that prop. Declared props: className, style, eN, text1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<EventHeader> doesn't accept that prop. Declared props: className, style, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventPopover'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<EventPopover> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventPopoverRegular'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|meta|date|place|time|text1|key|ref|className|style|children)$/]",
+        "message": "<EventPopoverRegular> doesn't accept that prop. Declared props: className, style, meta, date, place, time, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventPopoverType2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|meta|date|place|time|key|ref|className|style|children)$/]",
+        "message": "<EventPopoverType2> doesn't accept that prop. Declared props: className, style, meta, date, place, time."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventsContainer'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|key|ref|className|style|children)$/]",
+        "message": "<EventsContainer> doesn't accept that prop. Declared props: className, style, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EventsContainer'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:1-item|2-item|3-item|collision)$/]",
+        "message": "<EventsContainer> state must be one of '1-item' | '2-item' | '3-item' | 'collision'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Figure'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|caption|text1|key|ref|className|style|children)$/]",
+        "message": "<Figure> doesn't accept that prop. Declared props: className, style, caption, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileAttachment'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|description|focusOutline|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<FileAttachment> doesn't accept that prop. Declared props: className, style, description, focusOutline, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<FileCard> doesn't accept that prop. Declared props: className, style, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<FileItem> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|error|uploading|comment|comment edit|description empty|description filled|error - empty description)$/]",
+        "message": "<FileItem> type must be one of 'default' | 'error' | 'uploading' | 'comment' | 'comment edit' | 'description empty' | 'description filled' | 'error - empty description'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileItem2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<FileItem2> doesn't accept that prop. Declared props: className, style, type, text1, text2, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileItem2'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:description empty|description filled|comment|comment edit|default|error|uploading)$/]",
+        "message": "<FileItem2> type must be one of 'description empty' | 'description filled' | 'comment' | 'comment edit' | 'default' | 'error' | 'uploading'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUpload'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|size|state|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<FileUpload> doesn't accept that prop. Declared props: className, style, type, size, state, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUpload'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:container|error|default|drag over|disabled)$/]",
+        "message": "<FileUpload> type must be one of 'container' | 'error' | 'default' | 'drag over' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUpload'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:big|sm)$/]",
+        "message": "<FileUpload> size must be one of 'big' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUpload'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<FileUpload> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FocusOutline'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|borderRadius|key|ref|className|style|children)$/]",
+        "message": "<FocusOutline> doesn't accept that prop. Declared props: className, style, borderRadius."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FocusOutline'] > JSXAttribute[name.name='borderRadius'] > Literal[value!=/^(?:default|large|none)$/]",
+        "message": "<FocusOutline> borderRadius must be one of 'default' | 'large' | 'none'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FocusOutline2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|borderRadius|key|ref|className|style|children)$/]",
+        "message": "<FocusOutline2> doesn't accept that prop. Declared props: className, style, borderRadius."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FocusOutline2'] > JSXAttribute[name.name='borderRadius'] > Literal[value!=/^(?:default|large|none)$/]",
+        "message": "<FocusOutline2> borderRadius must be one of 'default' | 'large' | 'none'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FooterButtons'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|key|ref|className|style|children)$/]",
+        "message": "<FooterButtons> doesn't accept that prop. Declared props: className, style, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FooterButtons'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|first step|last step)$/]",
+        "message": "<FooterButtons> type must be one of 'default' | 'first step' | 'last step'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormControlButtonsPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|footerButtonsSlot|key|ref|className|style|children)$/]",
+        "message": "<FormControlButtonsPanel> doesn't accept that prop. Declared props: className, style, footerButtonsSlot."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInput'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|state|iconLeft2|iconRight|iconRight2|text1|key|ref|className|style|children)$/]",
+        "message": "<FormInput> doesn't accept that prop. Declared props: className, style, iconLeft, state, iconLeft2, iconRight, iconRight2, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInput'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|filled|focused|disabled|error)$/]",
+        "message": "<FormInput> state must be one of 'default' | 'filled' | 'focused' | 'disabled' | 'error'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInput2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|state|iconLeft2|iconRight|iconRight2|text1|key|ref|className|style|children)$/]",
+        "message": "<FormInput2> doesn't accept that prop. Declared props: className, style, iconLeft, state, iconLeft2, iconRight, iconRight2, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInput2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|filled|disabled|error|focused)$/]",
+        "message": "<FormInput2> state must be one of 'default' | 'filled' | 'disabled' | 'error' | 'focused'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInputCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|contentSlot|type|cardTitle|contentSlot2|deleteButton|icon1|key|ref|className|style|children)$/]",
+        "message": "<FormInputCard> doesn't accept that prop. Declared props: className, style, contentSlot, type, cardTitle, contentSlot2, deleteButton, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormInputCard'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|achievement empty|study read-only|study|achievement filled)$/]",
+        "message": "<FormInputCard> type must be one of 'default' | 'achievement empty' | 'study read-only' | 'study' | 'achievement filled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormSelect'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|iconLeft|size|iconLeft2|state|iconsSlot|text1|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<FormSelect> doesn't accept that prop. Declared props: className, style, iconLeft, size, iconLeft2, state, iconsSlot, text1, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormSelect'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:default|md)$/]",
+        "message": "<FormSelect> size must be one of 'default' | 'md'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormSelect'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|filled|focused|disabled|error|filled multi)$/]",
+        "message": "<FormSelect> state must be one of 'default' | 'filled' | 'focused' | 'disabled' | 'error' | 'filled multi'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FreeSlot'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<FreeSlot> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GalleryImageHover'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|icon1|key|ref|className|style|children)$/]",
+        "message": "<GalleryImageHover> doesn't accept that prop. Declared props: className, style, state, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GalleryImageHover'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover|focus)$/]",
+        "message": "<GalleryImageHover> state must be one of 'default' | 'hover' | 'focus'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GroupContainer'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|key|ref|className|style|children)$/]",
+        "message": "<GroupContainer> doesn't accept that prop. Declared props: className, style, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GroupContainer'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:inactive group|active group)$/]",
+        "message": "<GroupContainer> type must be one of 'inactive group' | 'active group'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HelperMessage'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<HelperMessage> doesn't accept that prop. Declared props: className, style, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HeroBanner'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<HeroBanner> doesn't accept that prop. Declared props: className, style, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HorizontalMenu'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|menuItems|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<HorizontalMenu> doesn't accept that prop. Declared props: className, style, menuItems, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon24Info'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<Icon24Info> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon24OrderAscending'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<Icon24OrderAscending> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconAccept'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconAccept> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconAdd'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconAdd> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconAddGlyph'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconAddGlyph> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconAlert'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconAlert> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconArrowDown'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconArrowDown> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconArrowDown2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconArrowDown2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconArrowUp'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconArrowUp> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBook'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconBook> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBook2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconBook2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBox'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|key|ref|className|style|children)$/]",
+        "message": "<IconBox> doesn't accept that prop. Declared props: className, style, icon, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconBox'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:48px|40px|56px)$/]",
+        "message": "<IconBox> type must be one of '48px' | '40px' | '56px'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconCalendar'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconCalendar> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconCalendar2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconCalendar2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconCalendarCheck'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconCalendarCheck> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconChevronRight'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconChevronRight> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClear'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClear> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClear2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClear2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClearOutline'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClearOutline> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClearOutline2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClearOutline2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClock'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClock> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconClose'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconClose> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconDelete2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconDelete2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconDownload'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconDownload> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconDownload2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconDownload2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconEllipsis'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconEllipsis> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconExternalLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconExternalLink> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconExternalLink2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconExternalLink2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconHome'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconHome> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconInfoOutline'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconInfoOutline> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconInfoOutline2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconInfoOutline2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconLabel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|text1|key|ref|className|style|children)$/]",
+        "message": "<IconLabel> doesn't accept that prop. Declared props: className, style, icon, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconLanguage'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconLanguage> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconLanguage2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconLanguage2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconLocationMarker'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconLocationMarker> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconMobileApp'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconMobileApp> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconPlay'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconPlay> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconSearchLg'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconSearchLg> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconSidebarExpand'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconSidebarExpand> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconStatusError'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconStatusError> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconSuccess'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconSuccess> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconSuccess2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconSuccess2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconSuccessOutline'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconSuccessOutline> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconUpload'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconUpload> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconUser'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconUser> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconVolumeMax'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconVolumeMax> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconVolumeX'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconVolumeX> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconZoomIn'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconZoomIn> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IllustrationAvatar'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IllustrationAvatar> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IllustrationBookmark'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IllustrationBookmark> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IllustrationCalendar'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IllustrationCalendar> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IllustrationSearchLg'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IllustrationSearchLg> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IllustrationSuccessOutline'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IllustrationSuccessOutline> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InactiveContent'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<InactiveContent> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InformationIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|hover|icon1|key|ref|className|style|children)$/]",
+        "message": "<InformationIcon> doesn't accept that prop. Declared props: className, style, hover, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InformationIcon2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|hover|icon1|key|ref|className|style|children)$/]",
+        "message": "<InformationIcon2> doesn't accept that prop. Declared props: className, style, hover, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InlineList'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|text4|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<InlineList> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3, text4, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InlineList'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:1-item|2-item|3-item|4-item)$/]",
+        "message": "<InlineList> type must be one of '1-item' | '2-item' | '3-item' | '4-item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InlineList2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<InlineList2> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InlineList2'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:2-item|3-item|1-item)$/]",
+        "message": "<InlineList2> type must be one of '2-item' | '3-item' | '1-item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LabelValueLarge2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|helpTooltip|slot|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<LabelValueLarge2> doesn't accept that prop. Declared props: className, style, helpTooltip, slot, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LabelValueMedium2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<LabelValueMedium2> doesn't accept that prop. Declared props: className, style, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LabelValueSmall'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<LabelValueSmall> doesn't accept that prop. Declared props: className, style, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LectureCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|contentSlot|rescheduled|type|examBadges|contextButton|lectureCode|additionalContent|buttonsSlot|examBadgesContainer|buttons|text1|text2|text3|icon1|key|ref|className|style|children)$/]",
+        "message": "<LectureCard> doesn't accept that prop. Declared props: className, style, contentSlot, rescheduled, type, examBadges, contextButton, lectureCode, additionalContent, buttonsSlot, examBadgesContainer, buttons, text1, text2, text3, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LectureCard'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:regular|ghost)$/]",
+        "message": "<LectureCard> type must be one of 'regular' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LecturePopover'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|rescheduled|type|contextButton|contentSlot|buttonsSlot|additionalContent|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<LecturePopover> doesn't accept that prop. Declared props: className, style, rescheduled, type, contextButton, contentSlot, buttonsSlot, additionalContent, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LecturePopover'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:regular|ghost)$/]",
+        "message": "<LecturePopover> type must be one of 'regular' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LecturePopoverHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|ghost|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<LecturePopoverHeader> doesn't accept that prop. Declared props: className, style, ghost, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Link'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|label|icon|state|icon2|focusOutline|text1|key|ref|className|style|children)$/]",
+        "message": "<Link> doesn't accept that prop. Declared props: className, style, label, icon, state, icon2, focusOutline, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Link'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<Link> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Link2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|label|icon|state|icon2|focusOutline|text1|key|ref|className|style|children)$/]",
+        "message": "<Link2> doesn't accept that prop. Declared props: className, style, label, icon, state, icon2, focusOutline, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Link2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<Link2> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LinkedArticle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|focusOutline|property1|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<LinkedArticle> doesn't accept that prop. Declared props: className, style, focusOutline, property1, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LinkedArticle'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:default|variant2)$/]",
+        "message": "<LinkedArticle> property1 must be one of 'default' | 'variant2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ListItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|type|label|value|icon1|key|ref|className|style|children)$/]",
+        "message": "<ListItem> doesn't accept that prop. Declared props: className, style, icon, type, label, value, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ListItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:deadline|two line|two line passed)$/]",
+        "message": "<ListItem> type must be one of 'deadline' | 'two line' | 'two line passed'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuDropdownContainer'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|key|ref|className|style|children)$/]",
+        "message": "<MenuDropdownContainer> doesn't accept that prop. Declared props: className, style, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuDropdownContainer'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:active|inactive)$/]",
+        "message": "<MenuDropdownContainer> type must be one of 'active' | 'inactive'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuGroupItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|hover|text1|key|ref|className|style|children)$/]",
+        "message": "<MenuGroupItem> doesn't accept that prop. Declared props: className, style, type, hover, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuGroupItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:selected item|active group item|inactive group item)$/]",
+        "message": "<MenuGroupItem> type must be one of 'selected item' | 'active group item' | 'inactive group item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuTab'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|hover|text1|key|ref|className|style|children)$/]",
+        "message": "<MenuTab> doesn't accept that prop. Declared props: className, style, state, hover, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuTab'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:active|default)$/]",
+        "message": "<MenuTab> state must be one of 'active' | 'default'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModalBarIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|state|key|ref|className|style|children)$/]",
+        "message": "<ModalBarIcon> doesn't accept that prop. Declared props: className, style, icon, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModalBarIcon'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<ModalBarIcon> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModalTitleBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|buttonSlot|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<ModalTitleBar> doesn't accept that prop. Declared props: className, style, buttonSlot, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModalWindow'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|contentSlot|type|buttonsSlot|key|ref|className|style|children)$/]",
+        "message": "<ModalWindow> doesn't accept that prop. Declared props: className, style, contentSlot, type, buttonsSlot."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModalWindow'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:simple pop-up|complex pop-up)$/]",
+        "message": "<ModalWindow> type must be one of 'simple pop-up' | 'complex pop-up'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModuleGroup'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|hover|text1|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<ModuleGroup> doesn't accept that prop. Declared props: className, style, type, hover, text1, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModuleGroup'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:inactive group item|active group item)$/]",
+        "message": "<ModuleGroup> type must be one of 'inactive group item' | 'active group item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModuleSingle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|dropdown|type|hover|text1|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<ModuleSingle> doesn't accept that prop. Declared props: className, style, dropdown, type, hover, text1, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ModuleSingle'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:inactive group item|active group item)$/]",
+        "message": "<ModuleSingle> type must be one of 'inactive group item' | 'active group item'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyShortcuts'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|persona|text1|text2|text3|text4|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<MyShortcuts> doesn't accept that prop. Declared props: className, style, persona, text1, text2, text3, text4, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyShortcuts'] > JSXAttribute[name.name='persona'] > Literal[value!=/^(?:student|pracownik)$/]",
+        "message": "<MyShortcuts> persona must be one of 'student' | 'pracownik'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|badge|type|icon1|key|ref|className|style|children)$/]",
+        "message": "<NavBarButton> doesn't accept that prop. Declared props: className, style, badge, type, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarButtonDesktop'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|badge|type|labelValue|state|icon|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<NavBarButtonDesktop> doesn't accept that prop. Declared props: className, style, badge, type, labelValue, state, icon, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarButtonDesktop'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:compact|menu|menu role|:og in)$/]",
+        "message": "<NavBarButtonDesktop> type must be one of 'compact' | 'menu' | 'menu role' | ':og in'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarButtonDesktop'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:hover|default)$/]",
+        "message": "<NavBarButtonDesktop> state must be one of 'hover' | 'default'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarDesktop'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<NavBarDesktop> doesn't accept that prop. Declared props: className, style, type, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarDesktop'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|log in)$/]",
+        "message": "<NavBarDesktop> type must be one of 'default' | 'log in'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarInputButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon|state|labelValue|key|ref|className|style|children)$/]",
+        "message": "<NavBarInputButton> doesn't accept that prop. Declared props: className, style, icon, state, labelValue."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarInputButton'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover)$/]",
+        "message": "<NavBarInputButton> state must be one of 'default' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Note'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|key|ref|className|style|children)$/]",
+        "message": "<Note> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Note'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:complex|simple)$/]",
+        "message": "<Note> type must be one of 'complex' | 'simple'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NotificationCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|button|type|contentSlot|text1|text2|text3|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<NotificationCard> doesn't accept that prop. Declared props: className, style, button, type, contentSlot, text1, text2, text3, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NotificationCard'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:read|urgent|unread)$/]",
+        "message": "<NotificationCard> type must be one of 'read' | 'urgent' | 'unread'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OrderedBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|number|type|key|ref|className|style|children)$/]",
+        "message": "<OrderedBadge> doesn't accept that prop. Declared props: className, style, number, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OrderedBadge'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|secondary)$/]",
+        "message": "<OrderedBadge> type must be one of 'default' | 'secondary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='OrderedListItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|icon1|key|ref|className|style|children)$/]",
+        "message": "<OrderedListItem> doesn't accept that prop. Declared props: className, style, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PageHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|slot|type|text1|text2|text3|key|ref|className|style|children)$/]",
+        "message": "<PageHeader> doesn't accept that prop. Declared props: className, style, slot, type, text1, text2, text3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PageHeader'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|button|segmented control|custom|slot)$/]",
+        "message": "<PageHeader> type must be one of 'default' | 'button' | 'segmented control' | 'custom' | 'slot'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PauseCircle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<PauseCircle> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PersonCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|footerSlot|property1|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<PersonCard> doesn't accept that prop. Declared props: className, style, footerSlot, property1, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PersonCard'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:default|variant2)$/]",
+        "message": "<PersonCard> property1 must be one of 'default' | 'variant2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Pill'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|label|type|state|hover|icon1|key|ref|className|style|children)$/]",
+        "message": "<Pill> doesn't accept that prop. Declared props: className, style, label, type, state, hover, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Pill'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|filter)$/]",
+        "message": "<Pill> type must be one of 'default' | 'filter'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Pill'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active)$/]",
+        "message": "<Pill> state must be one of 'default' | 'active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='QuestionBankAccount'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|text2|text3|key|ref|className|style|children)$/]",
+        "message": "<QuestionBankAccount> doesn't accept that prop. Declared props: className, style, type, text1, text2, text3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='QuestionBankAccount'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:other|default|new)$/]",
+        "message": "<QuestionBankAccount> type must be one of 'other' | 'default' | 'new'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radiobutton'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|selected|state|key|ref|className|style|children)$/]",
+        "message": "<Radiobutton> doesn't accept that prop. Declared props: className, style, selected, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radiobutton'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:disabled|default|read only)$/]",
+        "message": "<Radiobutton> state must be one of 'disabled' | 'default' | 'read only'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOption'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<RadioOption> doesn't accept that prop. Declared props: className, style, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOption'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected|selected \\(read-only\\)|disabled)$/]",
+        "message": "<RadioOption> type must be one of 'empty' | 'selected' | 'selected (read-only)' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOptionCompact'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<RadioOptionCompact> doesn't accept that prop. Declared props: className, style, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOptionCompact'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected)$/]",
+        "message": "<RadioOptionCompact> type must be one of 'empty' | 'selected'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOptionSlot'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|slot|type|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<RadioOptionSlot> doesn't accept that prop. Declared props: className, style, slot, type, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioOptionSlot'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:empty|selected|selected \\(read-only\\))$/]",
+        "message": "<RadioOptionSlot> type must be one of 'empty' | 'selected' | 'selected (read-only)'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ReadToggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|hover|key|ref|className|style|children)$/]",
+        "message": "<ReadToggle> doesn't accept that prop. Declared props: className, style, state, hover."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ReadToggle'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:read|unread)$/]",
+        "message": "<ReadToggle> state must be one of 'read' | 'unread'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SearchFiltersPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|filterPills|property1|text1|text2|key|ref|className|style|children)$/]",
+        "message": "<SearchFiltersPanel> doesn't accept that prop. Declared props: className, style, filterPills, property1, text1, text2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SearchFiltersPanel'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:default|variant2)$/]",
+        "message": "<SearchFiltersPanel> property1 must be one of 'default' | 'variant2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeparatorDot'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<SeparatorDot> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeparatorDot2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<SeparatorDot2> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeparatorHorizontal'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|key|ref|className|style|children)$/]",
+        "message": "<SeparatorHorizontal> doesn't accept that prop. Declared props: className, style, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeparatorHorizontal'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|dashed)$/]",
+        "message": "<SeparatorHorizontal> type must be one of 'default' | 'dashed'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ServiceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|buttonSlot|text1|text2|icon2|key|ref|className|style|children)$/]",
+        "message": "<ServiceCard> doesn't accept that prop. Declared props: className, style, buttonSlot, text1, text2, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Settings01'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<Settings01> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SidebarHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|icon1|key|ref|className|style|children)$/]",
+        "message": "<SidebarHeader> doesn't accept that prop. Declared props: className, style, type, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SidebarHeader'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:header collapsed|header expanded)$/]",
+        "message": "<SidebarHeader> type must be one of 'header collapsed' | 'header expanded'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatusIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|icon1|key|ref|className|style|children)$/]",
+        "message": "<StatusIcon> doesn't accept that prop. Declared props: className, style, state, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatusIcon'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:warning|error|information|success)$/]",
+        "message": "<StatusIcon> state must be one of 'warning' | 'error' | 'information' | 'success'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatusLabel'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|meta|type|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<StatusLabel> doesn't accept that prop. Declared props: className, style, meta, type, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatusLabel'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:active|disabled)$/]",
+        "message": "<StatusLabel> type must be one of 'active' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SuccessState'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|title|description|showDescription|showNextSteps|showButtons|showPrimaryAction|showSecondaryAction|text1|text2|text3|icon1|key|ref|className|style|children)$/]",
+        "message": "<SuccessState> doesn't accept that prop. Declared props: className, style, title, description, showDescription, showNextSteps, showButtons, showPrimaryAction, showSecondaryAction, text1, text2, text3, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|hover|key|ref|className|style|children)$/]",
+        "message": "<Switch> doesn't accept that prop. Declared props: className, style, state, hover."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active)$/]",
+        "message": "<Switch> state must be one of 'default' | 'active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|hover|key|ref|className|style|children)$/]",
+        "message": "<Switch2> doesn't accept that prop. Declared props: className, style, state, hover."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active)$/]",
+        "message": "<Switch2> state must be one of 'default' | 'active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableCell'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|text1|key|ref|className|style|children)$/]",
+        "message": "<TableCell> doesn't accept that prop. Declared props: className, style, property1, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableCell'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:bold text|button|label|plain text)$/]",
+        "message": "<TableCell> property1 must be one of 'bold text' | 'button' | 'label' | 'plain text'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableCell2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|text1|key|ref|className|style|children)$/]",
+        "message": "<TableCell2> doesn't accept that prop. Declared props: className, style, property1, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableCell2'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:bold text|button|label|plain text)$/]",
+        "message": "<TableCell2> property1 must be one of 'bold text' | 'button' | 'label' | 'plain text'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableHead'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|sortIcon|type|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<TableHead> doesn't accept that prop. Declared props: className, style, sortIcon, type, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableHead'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:default|centered)$/]",
+        "message": "<TableHead> type must be one of 'default' | 'centered'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|text1|key|ref|className|style|children)$/]",
+        "message": "<Textarea> doesn't accept that prop. Declared props: className, style, state, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|filled)$/]",
+        "message": "<Textarea> state must be one of 'default' | 'filled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|text1|key|ref|className|style|children)$/]",
+        "message": "<Textarea2> doesn't accept that prop. Declared props: className, style, state, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|filled)$/]",
+        "message": "<Textarea2> state must be one of 'default' | 'filled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TimelineStep'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|text1|key|ref|className|style|children)$/]",
+        "message": "<TimelineStep> doesn't accept that prop. Declared props: className, style, type, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TimelineStep'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:open|completed|empty)$/]",
+        "message": "<TimelineStep> type must be one of 'open' | 'completed' | 'empty'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleSwitch'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|labelValue|state|helpIcon|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<ToggleSwitch> doesn't accept that prop. Declared props: className, style, labelValue, state, helpIcon, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleSwitch'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active)$/]",
+        "message": "<ToggleSwitch> state must be one of 'default' | 'active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleSwitch2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|labelValue|state|helpIcon|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<ToggleSwitch2> doesn't accept that prop. Declared props: className, style, labelValue, state, helpIcon, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleSwitch2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active)$/]",
+        "message": "<ToggleSwitch2> state must be one of 'default' | 'active'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|side|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<Tooltip> doesn't accept that prop. Declared props: className, style, type, side, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:inline|box)$/]",
+        "message": "<Tooltip> type must be one of 'inline' | 'box'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='side'] > Literal[value!=/^(?:left|right)$/]",
+        "message": "<Tooltip> side must be one of 'left' | 'right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='UIPlaceholder'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<UIPlaceholder> doesn't accept that prop. Declared props: className, style, text1."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Accordion": {
+        "replaces": []
+      },
+      "AccordionItem": {
+        "replaces": []
+      },
+      "ActiveContent": {
+        "replaces": []
+      },
+      "ActiveIcon": {
+        "replaces": []
+      },
+      "ActiveIcon2": {
+        "replaces": []
+      },
+      "Alert": {
+        "replaces": []
+      },
+      "AlertCompact": {
+        "replaces": []
+      },
+      "AlertPanel": {
+        "replaces": []
+      },
+      "ArticleHeader": {
+        "replaces": []
+      },
+      "ArticleMeta": {
+        "replaces": []
+      },
+      "ArticleSubtitle": {
+        "replaces": []
+      },
+      "AssetsSidebarLogo": {
+        "replaces": []
+      },
+      "AssetsSidebarLogo2": {
+        "replaces": []
+      },
+      "AttachedFile": {
+        "replaces": []
+      },
+      "AudioPlayer": {
+        "replaces": []
+      },
+      "Badge": {
+        "replaces": []
+      },
+      "Badge2": {
+        "replaces": []
+      },
+      "Badge3": {
+        "replaces": []
+      },
+      "Badge4": {
+        "replaces": []
+      },
+      "Badge5": {
+        "replaces": []
+      },
+      "BadgedList": {
+        "replaces": []
+      },
+      "BinaryToggle": {
+        "replaces": []
+      },
+      "BinaryToggle2": {
+        "replaces": []
+      },
+      "BioCard": {
+        "replaces": []
+      },
+      "Blockquote": {
+        "replaces": []
+      },
+      "Breadcrumbs": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Button2": {
+        "replaces": []
+      },
+      "Button3": {
+        "replaces": []
+      },
+      "ButtonBordered": {
+        "replaces": []
+      },
+      "ButtonBorderless": {
+        "replaces": []
+      },
+      "CalendarDay": {
+        "replaces": []
+      },
+      "CalendarDeadlineItem": {
+        "replaces": []
+      },
+      "CalendarEmptyDay": {
+        "replaces": []
+      },
+      "CalendarTopActionButtons": {
+        "replaces": []
+      },
+      "CalendarWidget": {
+        "replaces": []
+      },
+      "CalendarWidgetItem": {
+        "replaces": []
+      },
+      "Callout": {
+        "replaces": []
+      },
+      "CardBasic": {
+        "replaces": []
+      },
+      "CardGeneric": {
+        "replaces": []
+      },
+      "CardHeader": {
+        "replaces": []
+      },
+      "CardHeader2": {
+        "replaces": []
+      },
+      "CardHeaderPanel": {
+        "replaces": []
+      },
+      "CategoryPill": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "CheckboxOption": {
+        "replaces": []
+      },
+      "CheckboxOptionCompact": {
+        "replaces": []
+      },
+      "CheckboxOptionParagraph": {
+        "replaces": []
+      },
+      "CheckboxOptionSlot": {
+        "replaces": []
+      },
+      "ChevronDown": {
+        "replaces": []
+      },
+      "ClassCardHeader": {
+        "replaces": []
+      },
+      "ClassGradePanel": {
+        "replaces": []
+      },
+      "CollapseControl": {
+        "replaces": []
+      },
+      "CollapsedGroup": {
+        "replaces": []
+      },
+      "ConflictPlaceholder": {
+        "replaces": []
+      },
+      "ContactCard": {
+        "replaces": []
+      },
+      "ContentCard": {
+        "replaces": []
+      },
+      "ContentCardSectioned": {
+        "replaces": []
+      },
+      "Courses": {
+        "replaces": []
+      },
+      "CursorPointer": {
+        "replaces": []
+      },
+      "DarkArrow": {
+        "replaces": []
+      },
+      "DayCell": {
+        "replaces": []
+      },
+      "DayNavItem": {
+        "replaces": []
+      },
+      "DeadlineItem": {
+        "replaces": []
+      },
+      "DeadlinePopover": {
+        "replaces": []
+      },
+      "DefaultPagination": {
+        "replaces": []
+      },
+      "DiscriminationTableRow": {
+        "replaces": []
+      },
+      "DocumentationHeader": {
+        "replaces": []
+      },
+      "DocumentsServicesCard": {
+        "replaces": []
+      },
+      "DropdownItem": {
+        "replaces": []
+      },
+      "DropdownSectionHeader": {
+        "replaces": []
+      },
+      "EmptyState": {
+        "replaces": []
+      },
+      "EventBar": {
+        "replaces": []
+      },
+      "EventCardBig": {
+        "replaces": []
+      },
+      "EventCardMedium": {
+        "replaces": []
+      },
+      "EventHeader": {
+        "replaces": []
+      },
+      "EventPopover": {
+        "replaces": []
+      },
+      "EventPopoverRegular": {
+        "replaces": []
+      },
+      "EventPopoverType2": {
+        "replaces": []
+      },
+      "EventsContainer": {
+        "replaces": []
+      },
+      "Figure": {
+        "replaces": []
+      },
+      "FileAttachment": {
+        "replaces": []
+      },
+      "FileCard": {
+        "replaces": []
+      },
+      "FileItem": {
+        "replaces": []
+      },
+      "FileItem2": {
+        "replaces": []
+      },
+      "FileUpload": {
+        "replaces": []
+      },
+      "FocusOutline": {
+        "replaces": []
+      },
+      "FocusOutline2": {
+        "replaces": []
+      },
+      "FooterButtons": {
+        "replaces": []
+      },
+      "FormControlButtonsPanel": {
+        "replaces": []
+      },
+      "FormInput": {
+        "replaces": []
+      },
+      "FormInput2": {
+        "replaces": []
+      },
+      "FormInputCard": {
+        "replaces": []
+      },
+      "FormSelect": {
+        "replaces": []
+      },
+      "FreeSlot": {
+        "replaces": []
+      },
+      "GalleryImageHover": {
+        "replaces": []
+      },
+      "GroupContainer": {
+        "replaces": []
+      },
+      "HelperMessage": {
+        "replaces": []
+      },
+      "HeroBanner": {
+        "replaces": []
+      },
+      "HorizontalMenu": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Icon24Info": {
+        "replaces": []
+      },
+      "Icon24OrderAscending": {
+        "replaces": []
+      },
+      "IconAccept": {
+        "replaces": []
+      },
+      "IconAdd": {
+        "replaces": []
+      },
+      "IconAddGlyph": {
+        "replaces": []
+      },
+      "IconAlert": {
+        "replaces": []
+      },
+      "IconArrowDown": {
+        "replaces": []
+      },
+      "IconArrowDown2": {
+        "replaces": []
+      },
+      "IconArrowUp": {
+        "replaces": []
+      },
+      "IconBook": {
+        "replaces": []
+      },
+      "IconBook2": {
+        "replaces": []
+      },
+      "IconBox": {
+        "replaces": []
+      },
+      "IconCalendar": {
+        "replaces": []
+      },
+      "IconCalendar2": {
+        "replaces": []
+      },
+      "IconCalendarCheck": {
+        "replaces": []
+      },
+      "IconChevronRight": {
+        "replaces": []
+      },
+      "IconClear": {
+        "replaces": []
+      },
+      "IconClear2": {
+        "replaces": []
+      },
+      "IconClearOutline": {
+        "replaces": []
+      },
+      "IconClearOutline2": {
+        "replaces": []
+      },
+      "IconClock": {
+        "replaces": []
+      },
+      "IconClose": {
+        "replaces": []
+      },
+      "IconDelete2": {
+        "replaces": []
+      },
+      "IconDownload": {
+        "replaces": []
+      },
+      "IconDownload2": {
+        "replaces": []
+      },
+      "IconEllipsis": {
+        "replaces": []
+      },
+      "IconExternalLink": {
+        "replaces": []
+      },
+      "IconExternalLink2": {
+        "replaces": []
+      },
+      "IconHome": {
+        "replaces": []
+      },
+      "IconInfoOutline": {
+        "replaces": []
+      },
+      "IconInfoOutline2": {
+        "replaces": []
+      },
+      "IconLabel": {
+        "replaces": []
+      },
+      "IconLanguage": {
+        "replaces": []
+      },
+      "IconLanguage2": {
+        "replaces": []
+      },
+      "IconLocationMarker": {
+        "replaces": []
+      },
+      "IconMobileApp": {
+        "replaces": []
+      },
+      "IconPlay": {
+        "replaces": []
+      },
+      "IconSearchLg": {
+        "replaces": []
+      },
+      "IconSidebarExpand": {
+        "replaces": []
+      },
+      "IconStatusError": {
+        "replaces": []
+      },
+      "IconSuccess": {
+        "replaces": []
+      },
+      "IconSuccess2": {
+        "replaces": []
+      },
+      "IconSuccessOutline": {
+        "replaces": []
+      },
+      "IconUpload": {
+        "replaces": []
+      },
+      "IconUser": {
+        "replaces": []
+      },
+      "IconVolumeMax": {
+        "replaces": []
+      },
+      "IconVolumeX": {
+        "replaces": []
+      },
+      "IconZoomIn": {
+        "replaces": []
+      },
+      "IllustrationAvatar": {
+        "replaces": []
+      },
+      "IllustrationBookmark": {
+        "replaces": []
+      },
+      "IllustrationCalendar": {
+        "replaces": []
+      },
+      "IllustrationSearchLg": {
+        "replaces": []
+      },
+      "IllustrationSuccessOutline": {
+        "replaces": []
+      },
+      "InactiveContent": {
+        "replaces": []
+      },
+      "InformationIcon": {
+        "replaces": []
+      },
+      "InformationIcon2": {
+        "replaces": []
+      },
+      "InlineList": {
+        "replaces": []
+      },
+      "InlineList2": {
+        "replaces": []
+      },
+      "LabelValueLarge2": {
+        "replaces": []
+      },
+      "LabelValueMedium2": {
+        "replaces": []
+      },
+      "LabelValueSmall": {
+        "replaces": []
+      },
+      "LectureCard": {
+        "replaces": []
+      },
+      "LecturePopover": {
+        "replaces": []
+      },
+      "LecturePopoverHeader": {
+        "replaces": []
+      },
+      "Link": {
+        "replaces": []
+      },
+      "Link2": {
+        "replaces": []
+      },
+      "LinkedArticle": {
+        "replaces": []
+      },
+      "ListItem": {
+        "replaces": []
+      },
+      "MenuDropdownContainer": {
+        "replaces": []
+      },
+      "MenuGroupItem": {
+        "replaces": []
+      },
+      "MenuTab": {
+        "replaces": []
+      },
+      "ModalBarIcon": {
+        "replaces": []
+      },
+      "ModalTitleBar": {
+        "replaces": []
+      },
+      "ModalWindow": {
+        "replaces": []
+      },
+      "ModuleGroup": {
+        "replaces": []
+      },
+      "ModuleSingle": {
+        "replaces": []
+      },
+      "MyShortcuts": {
+        "replaces": []
+      },
+      "NavBarButton": {
+        "replaces": []
+      },
+      "NavBarButtonDesktop": {
+        "replaces": []
+      },
+      "NavBarDesktop": {
+        "replaces": []
+      },
+      "NavBarInputButton": {
+        "replaces": []
+      },
+      "Note": {
+        "replaces": []
+      },
+      "NotificationCard": {
+        "replaces": []
+      },
+      "OrderedBadge": {
+        "replaces": []
+      },
+      "OrderedListItem": {
+        "replaces": []
+      },
+      "PageHeader": {
+        "replaces": []
+      },
+      "PauseCircle": {
+        "replaces": []
+      },
+      "PersonCard": {
+        "replaces": []
+      },
+      "Pill": {
+        "replaces": []
+      },
+      "QuestionBankAccount": {
+        "replaces": []
+      },
+      "Radiobutton": {
+        "replaces": []
+      },
+      "RadioOption": {
+        "replaces": []
+      },
+      "RadioOptionCompact": {
+        "replaces": []
+      },
+      "RadioOptionSlot": {
+        "replaces": []
+      },
+      "ReadToggle": {
+        "replaces": []
+      },
+      "SearchFiltersPanel": {
+        "replaces": []
+      },
+      "SeparatorDot": {
+        "replaces": []
+      },
+      "SeparatorDot2": {
+        "replaces": []
+      },
+      "SeparatorHorizontal": {
+        "replaces": []
+      },
+      "ServiceCard": {
+        "replaces": []
+      },
+      "Settings01": {
+        "replaces": []
+      },
+      "SidebarHeader": {
+        "replaces": []
+      },
+      "StatusIcon": {
+        "replaces": []
+      },
+      "StatusLabel": {
+        "replaces": []
+      },
+      "SuccessState": {
+        "replaces": []
+      },
+      "Switch": {
+        "replaces": []
+      },
+      "Switch2": {
+        "replaces": []
+      },
+      "TableCell": {
+        "replaces": []
+      },
+      "TableCell2": {
+        "replaces": []
+      },
+      "TableHead": {
+        "replaces": []
+      },
+      "Textarea": {
+        "replaces": []
+      },
+      "Textarea2": {
+        "replaces": []
+      },
+      "TimelineStep": {
+        "replaces": []
+      },
+      "ToggleSwitch": {
+        "replaces": []
+      },
+      "ToggleSwitch2": {
+        "replaces": []
+      },
+      "Tooltip": {
+        "replaces": []
+      },
+      "UIPlaceholder": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--blue-blue-100",
+      "--blue-blue-200",
+      "--blue-blue-300",
+      "--blue-blue-400",
+      "--blue-blue-500",
+      "--blue-blue-600",
+      "--blue-blue-700",
+      "--blue-blue-800",
+      "--blue-blue-900",
+      "--blue-blue-alpha-10",
+      "--body-default-lh",
+      "--body-default-size",
+      "--body-default-weight",
+      "--border-action",
+      "--border-action-hover",
+      "--border-assistive",
+      "--border-body",
+      "--border-default",
+      "--border-disabled",
+      "--border-error",
+      "--border-form-dark",
+      "--border-form-default",
+      "--border-item-in-progress",
+      "--border-on-action",
+      "--border-radius-focus-outline-default",
+      "--border-radius-focus-outline-lg",
+      "--border-radius-lg",
+      "--border-radius-md-default",
+      "--border-radius-none",
+      "--border-radius-sm",
+      "--border-radius-xl",
+      "--border-sidebar",
+      "--border-success",
+      "--border-warning",
+      "--border-width-default",
+      "--border-width-huge",
+      "--border-width-none",
+      "--border-width-strong",
+      "--burgundy-burgundy-100",
+      "--burgundy-burgundy-200",
+      "--burgundy-burgundy-300",
+      "--burgundy-burgundy-400",
+      "--burgundy-burgundy-500",
+      "--burgundy-burgundy-600",
+      "--burgundy-burgundy-700",
+      "--burgundy-burgundy-800",
+      "--burgundy-burgundy-900",
+      "--color-black",
+      "--color-gray-9",
+      "--color-white",
+      "--editorial-h1-lh",
+      "--editorial-h1-size",
+      "--editorial-h1-weight",
+      "--effects-focus-glow",
+      "--effects-shadow-default",
+      "--emerald-emerald-100",
+      "--emerald-emerald-200",
+      "--emerald-emerald-300",
+      "--emerald-emerald-400",
+      "--emerald-emerald-500",
+      "--emerald-emerald-600",
+      "--emerald-emerald-700",
+      "--emerald-emerald-800",
+      "--emerald-emerald-900",
+      "--font-brand",
+      "--font-family-body",
+      "--font-family-buttons",
+      "--font-family-headings",
+      "--font-family-labels",
+      "--font-mono",
+      "--font-sans",
+      "--font-size-100",
+      "--font-size-1000",
+      "--font-size-1100",
+      "--font-size-200",
+      "--font-size-300",
+      "--font-size-400",
+      "--font-size-500",
+      "--font-size-600",
+      "--font-size-700",
+      "--font-size-800",
+      "--font-size-900",
+      "--font-weight-book",
+      "--font-weight-medium",
+      "--font-weight-regular",
+      "--gold-gold-100",
+      "--gold-gold-200",
+      "--gold-gold-300",
+      "--gold-gold-400",
+      "--gold-gold-500",
+      "--gold-gold-600",
+      "--gold-gold-700",
+      "--gold-gold-800",
+      "--gold-gold-900",
+      "--gray-3",
+      "--green-green-100",
+      "--green-green-200",
+      "--green-green-300",
+      "--green-green-400",
+      "--green-green-500",
+      "--green-green-600",
+      "--green-green-700",
+      "--green-green-800",
+      "--green-green-900",
+      "--header-h1-lh",
+      "--header-h1-size",
+      "--header-h1-weight",
+      "--icons-action",
+      "--icons-action-hover",
+      "--icons-action-light",
+      "--icons-assistive",
+      "--icons-body",
+      "--icons-default",
+      "--icons-disabled",
+      "--icons-error",
+      "--icons-error-hover",
+      "--icons-error-light",
+      "--icons-item-in-progress",
+      "--icons-on-action",
+      "--icons-on-sidebar",
+      "--icons-subtle",
+      "--icons-success",
+      "--icons-success-light",
+      "--icons-warning",
+      "--icons-warning-light",
+      "--label-lh",
+      "--label-size",
+      "--label-weight",
+      "--line-height-100",
+      "--line-height-200",
+      "--line-height-300",
+      "--line-height-400",
+      "--line-height-500",
+      "--line-height-600",
+      "--line-height-700",
+      "--line-height-800",
+      "--neutral-black",
+      "--neutral-black-alpha-10",
+      "--neutral-black-alpha-50",
+      "--neutral-gray-100",
+      "--neutral-gray-200",
+      "--neutral-gray-25",
+      "--neutral-gray-300",
+      "--neutral-gray-400",
+      "--neutral-gray-50",
+      "--neutral-gray-500",
+      "--neutral-gray-600",
+      "--neutral-gray-700",
+      "--neutral-gray-800",
+      "--neutral-gray-900",
+      "--neutral-white",
+      "--new-group-font",
+      "--orange-orange-100",
+      "--orange-orange-200",
+      "--orange-orange-300",
+      "--orange-orange-400",
+      "--orange-orange-500",
+      "--orange-orange-600",
+      "--orange-orange-700",
+      "--orange-orange-800",
+      "--orange-orange-900",
+      "--padding-card-compact",
+      "--padding-card-default",
+      "--padding-card-hero",
+      "--padding-card-micro",
+      "--padding-card-nano",
+      "--padding-card-relaxed",
+      "--padding-card-spacious",
+      "--padding-card-tight",
+      "--padding-none",
+      "--pink-pink-100",
+      "--pink-pink-200",
+      "--pink-pink-300",
+      "--pink-pink-400",
+      "--pink-pink-500",
+      "--pink-pink-600",
+      "--pink-pink-700",
+      "--pink-pink-800",
+      "--pink-pink-900",
+      "--purple-purple-100",
+      "--purple-purple-200",
+      "--purple-purple-300",
+      "--purple-purple-400",
+      "--purple-purple-500",
+      "--purple-purple-600",
+      "--purple-purple-700",
+      "--purple-purple-800",
+      "--purple-purple-900",
+      "--radius-6",
+      "--radius-6-2",
+      "--radius-6px",
+      "--red-red-100",
+      "--red-red-200",
+      "--red-red-300",
+      "--red-red-400",
+      "--red-red-500",
+      "--red-red-600",
+      "--red-red-700",
+      "--red-red-800",
+      "--red-red-900",
+      "--scale-0",
+      "--scale-100",
+      "--scale-1000",
+      "--scale-150",
+      "--scale-200",
+      "--scale-25",
+      "--scale-250",
+      "--scale-300",
+      "--scale-400",
+      "--scale-50",
+      "--scale-500",
+      "--scale-600",
+      "--scale-700",
+      "--scale-800",
+      "--scale-900",
+      "--spacing-none",
+      "--spacing-spacing-compact",
+      "--spacing-spacing-default",
+      "--spacing-spacing-hero",
+      "--spacing-spacing-micro",
+      "--spacing-spacing-nano",
+      "--spacing-spacing-relaxed",
+      "--spacing-spacing-spacious",
+      "--spacing-spacing-tight",
+      "--surface-action",
+      "--surface-action-contrast",
+      "--surface-action-contrast-hover",
+      "--surface-action-hover",
+      "--surface-action-surface-hover",
+      "--surface-assistive",
+      "--surface-callout-information",
+      "--surface-dark-default",
+      "--surface-default",
+      "--surface-destructive",
+      "--surface-destructive-hover",
+      "--surface-error",
+      "--surface-event-class",
+      "--surface-event-class-hover",
+      "--surface-event-class-subtle",
+      "--surface-event-deadline",
+      "--surface-event-diploma",
+      "--surface-event-diploma-hover",
+      "--surface-event-diploma-subtle",
+      "--surface-event-duty",
+      "--surface-event-duty-hover",
+      "--surface-event-duty-subtle",
+      "--surface-event-exam",
+      "--surface-event-exam-hover",
+      "--surface-event-exam-subtle",
+      "--surface-event-room",
+      "--surface-event-room-hover",
+      "--surface-event-room-subtle",
+      "--surface-event-saved",
+      "--surface-event-saved-hover",
+      "--surface-event-saved-subtle",
+      "--surface-event-training",
+      "--surface-event-training-hover",
+      "--surface-event-training-subtle",
+      "--surface-information",
+      "--surface-item-in-progress",
+      "--surface-overlay-backdrop",
+      "--surface-page",
+      "--surface-panel",
+      "--surface-panel-deep",
+      "--surface-panel-deep-hover",
+      "--surface-panel-hover",
+      "--surface-sidebar",
+      "--surface-sidebar-hover",
+      "--surface-subtle",
+      "--surface-success",
+      "--surface-success-deep",
+      "--surface-warning",
+      "--surface-warning-deep",
+      "--teal-teal-100",
+      "--teal-teal-200",
+      "--teal-teal-300",
+      "--teal-teal-400",
+      "--teal-teal-500",
+      "--teal-teal-600",
+      "--teal-teal-700",
+      "--teal-teal-800",
+      "--teal-teal-900",
+      "--text-action",
+      "--text-action-hover",
+      "--text-assistive",
+      "--text-assistive-panel",
+      "--text-blockquote",
+      "--text-body",
+      "--text-disabled",
+      "--text-error",
+      "--text-error-hover",
+      "--text-headings",
+      "--text-item-in-progress",
+      "--text-on-action",
+      "--text-on-sidebar",
+      "--text-success",
+      "--text-warning",
+      "--ui-label-lh",
+      "--ui-label-size",
+      "--ui-label-weight"
+    ],
+    "tokenKinds": {
+      "--blue-blue-100": "color",
+      "--blue-blue-200": "color",
+      "--blue-blue-300": "color",
+      "--blue-blue-400": "color",
+      "--blue-blue-500": "color",
+      "--blue-blue-600": "color",
+      "--blue-blue-700": "color",
+      "--blue-blue-800": "color",
+      "--blue-blue-900": "color",
+      "--blue-blue-alpha-10": "color",
+      "--border-action-hover": "color",
+      "--border-action": "color",
+      "--border-assistive": "color",
+      "--border-body": "color",
+      "--border-default": "color",
+      "--border-disabled": "color",
+      "--border-error": "color",
+      "--border-form-dark": "color",
+      "--border-form-default": "color",
+      "--border-item-in-progress": "color",
+      "--border-on-action": "color",
+      "--border-radius-focus-outline-default": "radius",
+      "--border-radius-focus-outline-lg": "radius",
+      "--border-radius-lg": "radius",
+      "--border-radius-md-default": "radius",
+      "--border-radius-none": "radius",
+      "--border-radius-sm": "radius",
+      "--border-radius-xl": "radius",
+      "--border-sidebar": "color",
+      "--border-success": "color",
+      "--border-warning": "color",
+      "--border-width-default": "color",
+      "--border-width-huge": "color",
+      "--border-width-none": "color",
+      "--border-width-strong": "color",
+      "--burgundy-burgundy-100": "color",
+      "--burgundy-burgundy-200": "color",
+      "--burgundy-burgundy-300": "color",
+      "--burgundy-burgundy-400": "color",
+      "--burgundy-burgundy-500": "color",
+      "--burgundy-burgundy-600": "color",
+      "--burgundy-burgundy-700": "color",
+      "--burgundy-burgundy-800": "color",
+      "--burgundy-burgundy-900": "color",
+      "--color-black": "color",
+      "--color-gray-9": "color",
+      "--color-white": "color",
+      "--effects-focus-glow": "color",
+      "--effects-shadow-default": "color",
+      "--emerald-emerald-100": "color",
+      "--emerald-emerald-200": "color",
+      "--emerald-emerald-300": "color",
+      "--emerald-emerald-400": "color",
+      "--emerald-emerald-500": "color",
+      "--emerald-emerald-600": "color",
+      "--emerald-emerald-700": "color",
+      "--emerald-emerald-800": "color",
+      "--emerald-emerald-900": "color",
+      "--font-family-body": "font",
+      "--font-family-buttons": "font",
+      "--font-family-headings": "font",
+      "--font-family-labels": "font",
+      "--font-size-1000": "font",
+      "--font-size-100": "font",
+      "--font-size-1100": "font",
+      "--font-size-200": "font",
+      "--font-size-300": "font",
+      "--font-size-400": "font",
+      "--font-size-500": "font",
+      "--font-size-600": "font",
+      "--font-size-700": "font",
+      "--font-size-800": "font",
+      "--font-size-900": "font",
+      "--font-weight-book": "font",
+      "--font-weight-medium": "font",
+      "--font-weight-regular": "font",
+      "--gold-gold-100": "color",
+      "--gold-gold-200": "color",
+      "--gold-gold-300": "color",
+      "--gold-gold-400": "color",
+      "--gold-gold-500": "color",
+      "--gold-gold-600": "color",
+      "--gold-gold-700": "color",
+      "--gold-gold-800": "color",
+      "--gold-gold-900": "color",
+      "--gray-3": "color",
+      "--green-green-100": "color",
+      "--green-green-200": "color",
+      "--green-green-300": "color",
+      "--green-green-400": "color",
+      "--green-green-500": "color",
+      "--green-green-600": "color",
+      "--green-green-700": "color",
+      "--green-green-800": "color",
+      "--green-green-900": "color",
+      "--icons-action-hover": "color",
+      "--icons-action-light": "color",
+      "--icons-action": "color",
+      "--icons-assistive": "color",
+      "--icons-body": "color",
+      "--icons-default": "color",
+      "--icons-disabled": "color",
+      "--icons-error-hover": "color",
+      "--icons-error-light": "color",
+      "--icons-error": "color",
+      "--icons-item-in-progress": "color",
+      "--icons-on-action": "color",
+      "--icons-on-sidebar": "color",
+      "--icons-subtle": "color",
+      "--icons-success-light": "color",
+      "--icons-success": "color",
+      "--icons-warning-light": "color",
+      "--icons-warning": "color",
+      "--line-height-100": "font",
+      "--line-height-200": "font",
+      "--line-height-300": "font",
+      "--line-height-400": "font",
+      "--line-height-500": "font",
+      "--line-height-600": "font",
+      "--line-height-700": "font",
+      "--line-height-800": "font",
+      "--neutral-black-alpha-10": "color",
+      "--neutral-black-alpha-50": "color",
+      "--neutral-black": "color",
+      "--neutral-gray-100": "color",
+      "--neutral-gray-200": "color",
+      "--neutral-gray-25": "color",
+      "--neutral-gray-300": "color",
+      "--neutral-gray-400": "color",
+      "--neutral-gray-500": "color",
+      "--neutral-gray-50": "color",
+      "--neutral-gray-600": "color",
+      "--neutral-gray-700": "color",
+      "--neutral-gray-800": "color",
+      "--neutral-gray-900": "color",
+      "--neutral-white": "color",
+      "--new-group-font": "font",
+      "--orange-orange-100": "color",
+      "--orange-orange-200": "color",
+      "--orange-orange-300": "color",
+      "--orange-orange-400": "color",
+      "--orange-orange-500": "color",
+      "--orange-orange-600": "color",
+      "--orange-orange-700": "color",
+      "--orange-orange-800": "color",
+      "--orange-orange-900": "color",
+      "--padding-card-compact": "spacing",
+      "--padding-card-default": "spacing",
+      "--padding-card-hero": "spacing",
+      "--padding-card-micro": "spacing",
+      "--padding-card-nano": "spacing",
+      "--padding-card-relaxed": "spacing",
+      "--padding-card-spacious": "spacing",
+      "--padding-card-tight": "spacing",
+      "--padding-none": "spacing",
+      "--pink-pink-100": "color",
+      "--pink-pink-200": "color",
+      "--pink-pink-300": "color",
+      "--pink-pink-400": "color",
+      "--pink-pink-500": "color",
+      "--pink-pink-600": "color",
+      "--pink-pink-700": "color",
+      "--pink-pink-800": "color",
+      "--pink-pink-900": "color",
+      "--purple-purple-100": "color",
+      "--purple-purple-200": "color",
+      "--purple-purple-300": "color",
+      "--purple-purple-400": "color",
+      "--purple-purple-500": "color",
+      "--purple-purple-600": "color",
+      "--purple-purple-700": "color",
+      "--purple-purple-800": "color",
+      "--purple-purple-900": "color",
+      "--radius-6-2": "radius",
+      "--radius-6": "radius",
+      "--radius-6px": "radius",
+      "--red-red-100": "color",
+      "--red-red-200": "color",
+      "--red-red-300": "color",
+      "--red-red-400": "color",
+      "--red-red-500": "color",
+      "--red-red-600": "color",
+      "--red-red-700": "color",
+      "--red-red-800": "color",
+      "--red-red-900": "color",
+      "--scale-0": "spacing",
+      "--scale-1000": "spacing",
+      "--scale-100": "spacing",
+      "--scale-150": "spacing",
+      "--scale-200": "spacing",
+      "--scale-250": "spacing",
+      "--scale-25": "spacing",
+      "--scale-300": "spacing",
+      "--scale-400": "spacing",
+      "--scale-500": "spacing",
+      "--scale-50": "spacing",
+      "--scale-600": "spacing",
+      "--scale-700": "spacing",
+      "--scale-800": "spacing",
+      "--scale-900": "spacing",
+      "--spacing-none": "spacing",
+      "--spacing-spacing-compact": "spacing",
+      "--spacing-spacing-default": "spacing",
+      "--spacing-spacing-hero": "spacing",
+      "--spacing-spacing-micro": "spacing",
+      "--spacing-spacing-nano": "spacing",
+      "--spacing-spacing-relaxed": "spacing",
+      "--spacing-spacing-spacious": "spacing",
+      "--spacing-spacing-tight": "spacing",
+      "--surface-action-contrast-hover": "color",
+      "--surface-action-contrast": "color",
+      "--surface-action-hover": "color",
+      "--surface-action-surface-hover": "color",
+      "--surface-action": "color",
+      "--surface-assistive": "color",
+      "--surface-callout-information": "color",
+      "--surface-dark-default": "color",
+      "--surface-default": "color",
+      "--surface-destructive-hover": "color",
+      "--surface-destructive": "color",
+      "--surface-error": "color",
+      "--surface-event-class-hover": "color",
+      "--surface-event-class-subtle": "color",
+      "--surface-event-class": "color",
+      "--surface-event-deadline": "color",
+      "--surface-event-diploma-hover": "color",
+      "--surface-event-diploma-subtle": "color",
+      "--surface-event-diploma": "color",
+      "--surface-event-duty-hover": "color",
+      "--surface-event-duty-subtle": "color",
+      "--surface-event-duty": "color",
+      "--surface-event-exam-hover": "color",
+      "--surface-event-exam-subtle": "color",
+      "--surface-event-exam": "color",
+      "--surface-event-room-hover": "color",
+      "--surface-event-room-subtle": "color",
+      "--surface-event-room": "color",
+      "--surface-event-saved-hover": "color",
+      "--surface-event-saved-subtle": "color",
+      "--surface-event-saved": "color",
+      "--surface-event-training-hover": "color",
+      "--surface-event-training-subtle": "color",
+      "--surface-event-training": "color",
+      "--surface-information": "color",
+      "--surface-item-in-progress": "color",
+      "--surface-overlay-backdrop": "color",
+      "--surface-page": "color",
+      "--surface-panel-deep-hover": "color",
+      "--surface-panel-deep": "color",
+      "--surface-panel-hover": "color",
+      "--surface-panel": "color",
+      "--surface-sidebar-hover": "color",
+      "--surface-sidebar": "color",
+      "--surface-subtle": "color",
+      "--surface-success-deep": "color",
+      "--surface-success": "color",
+      "--surface-warning-deep": "color",
+      "--surface-warning": "color",
+      "--teal-teal-100": "color",
+      "--teal-teal-200": "color",
+      "--teal-teal-300": "color",
+      "--teal-teal-400": "color",
+      "--teal-teal-500": "color",
+      "--teal-teal-600": "color",
+      "--teal-teal-700": "color",
+      "--teal-teal-800": "color",
+      "--teal-teal-900": "color",
+      "--text-action-hover": "color",
+      "--text-action": "color",
+      "--text-assistive-panel": "color",
+      "--text-assistive": "color",
+      "--text-blockquote": "color",
+      "--text-body": "color",
+      "--text-disabled": "color",
+      "--text-error-hover": "color",
+      "--text-error": "color",
+      "--text-headings": "color",
+      "--text-item-in-progress": "color",
+      "--text-on-action": "color",
+      "--text-on-sidebar": "color",
+      "--text-success": "color",
+      "--text-warning": "color",
+      "--font-sans": "font",
+      "--font-brand": "font",
+      "--font-mono": "font",
+      "--editorial-h1-size": "spacing",
+      "--editorial-h1-lh": "spacing",
+      "--editorial-h1-weight": "font",
+      "--header-h1-size": "spacing",
+      "--header-h1-lh": "spacing",
+      "--header-h1-weight": "font",
+      "--body-default-size": "spacing",
+      "--body-default-lh": "spacing",
+      "--body-default-weight": "font",
+      "--ui-label-size": "spacing",
+      "--ui-label-lh": "spacing",
+      "--ui-label-weight": "font",
+      "--label-size": "spacing",
+      "--label-lh": "spacing",
+      "--label-weight": "font"
+    },
+    "fontFamilies": [
+      "Geomanist",
+      "Inter"
+    ]
+  }
+}
