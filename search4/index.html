@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Szukaj pracownika — Wirtualna Uczelnia SWPS</title>
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/assets/fonts/fonts.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/tokens/fig-tokens.css">
+<link rel="stylesheet" href="_ds/veritas-design-system-ca019fc6-3370-42c0-b53f-9a7dc8bb713b/tokens/typography.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+*{box-sizing:border-box}
+:root{--bubble-level-0:#AE63E4;--bubble-level-1:#47B9E0;--bubble-level-2:#666FE3}
+body{margin:0;background:var(--surface-subtle,#f7f7f8);font-family:Geomanist,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--text-action,#0a6cb0);text-decoration:none}
+a:hover{color:var(--text-action-hover,#095a94)}
+.app{min-height:100vh;display:flex;flex-direction:column;align-items:stretch}
+.nav-topstrip{height:6px;background:#161616;width:100%}
+.nav-bar{width:100%;background:var(--surface-subtle,#eceef0);display:flex;align-items:center;justify-content:space-between;padding:14px 32px;gap:16px}
+.nav-left{display:flex;align-items:center;gap:10px}
+.nav-pill{display:flex;align-items:center;gap:8px;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:20px;padding:9px 18px;font-size:14px;color:var(--text-body,#333);cursor:pointer}
+.nav-pill svg{color:var(--icons-assistive,#8a8a90);flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-bell{width:36px;height:36px;border-radius:50%;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;color:var(--icons-assistive,#8a8a90)}
+.nav-bell .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--red-red-500,#e0384b)}
+.nav-user,.nav-lang{display:flex;align-items:center;gap:6px;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:20px;padding:9px 16px;font-size:14px;font-weight:600;color:var(--text-body,#333);cursor:pointer}
+.nav-user svg,.nav-lang svg{color:var(--icons-assistive,#8a8a90)}
+.breadcrumbs{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-assistive,#6b6b70);padding:20px 32px 0;max-width:1272px;margin:0 auto;width:100%}
+.breadcrumbs a{color:var(--text-assistive,#6b6b70);text-decoration:none}
+.breadcrumbs a:hover{color:var(--text-action,#0a6cb0)}
+.breadcrumbs .crumb-current{text-decoration:underline;color:var(--text-body,#333)}
+.breadcrumbs .crumb-sep{color:var(--icons-assistive,#c0c0c0)}
+.page{width:100%;max-width:1272px;padding:48px 32px 80px;margin:0 auto;display:flex;flex-direction:column}
+.page-title{font-size:32px;line-height:40px;font-weight:700;color:var(--text-headings,#161616);margin:0 0 28px}
+
+.search-row{display:flex;align-items:stretch;gap:12px;width:100%}
+.search-bar{flex:1;margin:0;display:flex;align-items:center;gap:10px;background:var(--surface-default,#fff);border:1px solid var(--border-form-default,#d9d9de);border-radius:8px;padding:12px 20px}
+.search-btn{background:var(--blue-blue-500,#0a6cb0);color:#fff;border:none;border-radius:8px;padding:0 28px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
+.search-btn:hover{background:var(--blue-blue-600,#095a94)}
+.search-bar input{flex:1;border:none;outline:none;font-size:15px;font-family:inherit;color:var(--text-body,#333);background:transparent}
+.search-bar .icon-slot{color:var(--icons-assistive,#6b6b70);display:flex;flex-shrink:0}
+.filters-row{display:flex;flex-wrap:nowrap;gap:16px;width:100%;margin:16px 0 0}
+.filter-select-wrap{position:relative;flex:1;display:flex;align-items:center}
+.filter-select{width:100%;appearance:none;border:1px solid var(--border-form-default,#d9d9de);border-radius:8px;padding:12px 40px 12px 16px;font-size:15px;font-family:inherit;color:var(--text-body,#333);background:var(--surface-default,#fff) url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22><path d=%22M6 9l6 6 6-6%22 stroke=%22%236b6b70%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>') no-repeat right 16px center;cursor:pointer}
+.filter-select-wrap .filter-clear{position:absolute;right:38px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--neutral-gray-300,#8a8a90);color:#fff;border:none;font-size:13px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.filter-text{flex:1;border:1px solid var(--border-form-default,#d9d9de);border-radius:8px;padding:12px 16px;font-size:15px;font-family:inherit;color:var(--text-body,#333);background:var(--surface-default,#fff)}
+.filter-text::placeholder{color:var(--text-assistive,#8a8a90)}
+
+.bubble-wrap{position:relative;width:100%;height:230px;background:linear-gradient(135deg,#fbe4ec,#e9eefb 55%,#dbe7fb);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;margin:32px 0 40px;overflow:hidden;background-image:radial-gradient(rgba(60,60,90,.06) 1px,transparent 1px),linear-gradient(135deg,#fbe4ec,#e9eefb 55%,#dbe7fb);background-size:18px 18px,100% 100%}
+.chart-title{position:absolute;top:18px;left:24px;font-size:20px;font-weight:700;color:#1c2340;z-index:3}
+.chart-viewport{position:absolute;inset:0;overflow:hidden;cursor:grab}
+.chart-viewport.dragging{cursor:grabbing}
+.chart-canvas{position:absolute;top:0;left:0;transform-origin:0 0;padding:70px 40px 40px;display:inline-flex;gap:100px}
+.rc-branch{display:flex;flex-direction:column;align-items:center;position:relative}
+.rc-card{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ececf3;border-radius:14px;box-shadow:0 2px 8px rgba(30,30,60,.06);padding:12px 18px;cursor:pointer;white-space:nowrap;position:relative;z-index:2}
+.rc-card:hover{box-shadow:0 4px 14px rgba(30,30,60,.12)}
+.rc-card-active{outline:2px solid var(--blue-blue-500,#0a6cb0);outline-offset:1px}
+.rc-card-root{font-size:16px;font-weight:700;color:#1c2340}
+.rc-card-hub{font-size:14px;font-weight:700;color:#1c2340}
+.rc-card-leaf-top{font-size:14px;font-weight:700;color:#1c2340;padding:12px 20px}
+.rc-card-folder{font-size:13px;font-weight:700;color:#1c2340;padding:9px 14px;border-radius:10px}
+.rc-card-leaf{font-size:12.5px;font-weight:500;color:#333;padding:8px 12px;border-radius:8px;white-space:normal;max-width:220px}
+.rc-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rc-icon-root{background:#efe6fb;color:#8b5cf6}
+.rc-folder-icon{flex-shrink:0}
+.rc-dot{position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:#3b7dde;z-index:3}
+.rc-row{display:flex;padding-top:30px;position:relative;margin:0;list-style:none;justify-content:center}
+.rc-row::before{content:'';position:absolute;top:0;left:50%;border-left:2px solid #3b7dde;width:0;height:30px}
+.rc-row>li{display:flex;flex-direction:column;align-items:center;position:relative;padding:30px 20px 0}
+.rc-row>li::before,.rc-row>li::after{content:'';position:absolute;top:0;right:50%;border-top:2px solid #3b7dde;width:50%;height:30px}
+.rc-row>li::after{right:auto;left:50%;border-left:2px solid #3b7dde}
+.rc-row>li:only-child{padding-top:0}
+.rc-row>li:only-child::before,.rc-row>li:only-child::after{display:none}
+.rc-row>li:first-child::before,.rc-row>li:last-child::after{border:0 none}
+.list-tree{list-style:none;margin:10px 0 0 6px;padding:0;position:relative}
+.list-tree::before{content:'';position:absolute;left:0;top:-10px;height:10px;width:2px;background:#3b7dde}
+.list-node{position:relative;padding:6px 0 6px 26px;margin:0}
+.list-node::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#3b7dde}
+.list-node:last-child::before{bottom:auto;height:22px}
+.list-node::after{content:'';position:absolute;left:0;top:22px;width:16px;height:2px;background:#3b7dde}
+.list-node>.rc-dot{top:18px;left:-1px;transform:none}
+.bubble-wrap.bubble-fullscreen{position:fixed;inset:0;z-index:1000;margin:0;border-radius:0;height:100vh!important;width:100vw}
+.bubble-resize-handle{position:absolute;left:0;right:0;bottom:0;height:8px;cursor:ns-resize;z-index:4;display:flex;align-items:center;justify-content:center}
+.bubble-resize-handle::after{content:'';width:36px;height:4px;border-radius:2px;background:var(--neutral-gray-300,#c0c0c0)}
+.bubble-resize-handle:hover::after{background:var(--icons-assistive,#8a8a90)}
+.bubble-tools{position:absolute;top:14px;right:16px;display:flex;gap:8px;z-index:2}
+.icon-btn{width:32px;height:32px;border-radius:6px;border:1px solid var(--border-default,#e2e2e6);background:var(--surface-default,#fff);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
+.icon-btn-wide{width:auto;padding:0 12px;font-size:13px;font-weight:600;color:var(--text-body,#333)}
+.icon-btn:hover{background:var(--surface-subtle,#f2f2f4)}
+
+.results-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border-default,#e2e2e6);padding-bottom:16px;margin-bottom:24px}
+.results-count{font-size:15px;color:var(--text-body,#333)}
+.link-btn{border:none;background:none;color:var(--text-action,#0a6cb0);font-size:14px;cursor:pointer;font-family:inherit;text-decoration:underline;padding:0;margin-left:8px}
+.results-scope{font-size:14px;color:var(--text-assistive,#6b6b70)}
+
+.results-body{display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start}
+.filters-panel{background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;padding:20px}
+.filters-title{font-size:13px;font-weight:700;color:var(--text-assistive,#6b6b70);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
+.filters-search{display:flex;align-items:center;gap:8px;border:1px solid var(--border-form-default,#d9d9de);border-radius:6px;padding:8px 10px;margin-bottom:14px}
+.filters-search input{border:none;outline:none;font-size:13px;font-family:inherit;color:var(--text-body,#333);background:transparent;width:100%}
+.filters-search .icon-slot{color:var(--icons-assistive,#6b6b70);display:flex;flex-shrink:0}
+.filters-group{display:flex;flex-direction:column;gap:12px}
+.folder-tree{gap:2px}
+.folder-node{display:flex;flex-direction:column}
+.folder-row{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--text-body,#333);cursor:pointer;padding:6px 4px;border-radius:4px}
+.folder-row:hover{background:var(--surface-subtle,#f2f2f4)}
+.folder-row-active{color:var(--blue-blue-500,#0a6cb0)}
+.folder-chevron{display:inline-block;transition:transform .15s;font-size:14px;color:var(--icons-assistive,#8a8a90)}
+.folder-chevron.open{transform:rotate(90deg)}
+.folder-children{display:flex;flex-direction:column;gap:2px}
+.folder-leaf{cursor:pointer;font-weight:400}
+.folder-leaf.folder-row-active{background:var(--surface-information,#e8f2fa)}
+.filter-check{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-body,#333);cursor:pointer}
+.filter-check input{width:16px;height:16px;accent-color:var(--blue-blue-500,#0a6cb0)}
+
+.results-list{display:flex;flex-direction:column;background:var(--surface-default,#fff);border:1px solid var(--border-default,#e2e2e6);border-radius:8px;overflow:hidden}
+.result-row{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border-default,#e2e2e6)}
+.result-row:last-child{border-bottom:none}
+.avatar{border-radius:50%;background:var(--surface-subtle,#eceef0);color:var(--icons-assistive,#8a8a90);display:flex;align-items:center;justify-content:center;flex-shrink:0;object-fit:cover}
+.avatar-lg{width:64px;height:64px}
+.result-main{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.result-name-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.result-name{font-size:20px;font-weight:700;color:var(--text-body,#161616)}
+.ext-link{color:var(--icons-assistive,#8a8a90);display:flex;flex-shrink:0;cursor:pointer}
+.result-meta{display:flex;flex-wrap:wrap;gap:20px}
+.meta-item{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-assistive,#4a4a50)}
+.meta-role{font-size:16px}
+.cap-icon{display:flex;color:var(--text-assistive,#6b6b70)}
+.meta-item a{color:var(--text-action,#0a6cb0)}
+.meta-item a:hover{color:var(--text-action-hover,#095a94)}
+.empty-state{text-align:center;color:var(--text-assistive,#6b6b70);padding:40px;font-size:16px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="nav-topstrip"></div>
+<div class="nav-bar">
+<div class="nav-left">
+<span class="nav-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm10 2-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Szukaj osób</span>
+<span class="nav-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="10" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 20h6M12 4v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Baza wiedzy</span>
+</div>
+<div class="nav-right">
+<span class="nav-bell"><span class="dot"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 10a6 6 0 1 1 12 0v4l1.5 3h-15L6 14v-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.8"/></svg></span>
+<span class="nav-user">Anna Kowalska<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<span class="nav-lang">PL<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</div>
+</div>
+<div class="breadcrumbs"><a href="#">Wirtualna Uczelnia</a><span class="crumb-sep">›</span><a href="#">Życie uczelni</a><span class="crumb-sep">›</span><a href="#" class="crumb-current">Wydarzenia</a><span class="crumb-sep">›</span><span>Szukaj</span></div>
+<main class="page">
+<h1 class="page-title">Struktura organizacyjna</h1>
+<div class="search-row">
+<div class="search-bar">
+<span class="icon-slot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm10 2-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<input id="searchInput" placeholder="Wpisz imię, nazwisko lub e-mail..." aria-label="Szukaj pracownika">
+</div>
+<button class="search-btn" id="searchBtn">Szukaj</button>
+</div>
+<div class="filters-row" id="employmentFilters">
+<div class="filter-select-wrap">
+<select class="filter-select" id="funkcjaSelect"><option value="">Rola</option></select>
+<button class="filter-clear" id="funkcjaClear" aria-label="Wyczyść">×</button>
+</div>
+<div class="filter-select-wrap">
+<select class="filter-select" id="stanowiskoSelect"><option value="">Stanowisko</option></select>
+</div>
+<input class="filter-text" id="miastoInput" placeholder="Miasto" aria-label="Miasto">
+</div>
+<div class="bubble-wrap" id="bubbleWrap">
+<div class="chart-title">Schemat obszaru akademickiego</div>
+<div class="chart-viewport" id="chartViewport"><div class="chart-canvas" id="chartCanvas"></div></div>
+<div class="bubble-tools">
+<button class="icon-btn" id="zoomInBtn" aria-label="Przybliż">+</button>
+<button class="icon-btn" id="zoomOutBtn" aria-label="Oddal">−</button>
+<button class="icon-btn" id="resetViewBtn" aria-label="Reset widoku">⟲</button>
+<button class="icon-btn icon-btn-wide" id="expandAllBtn" aria-label="Rozwiń wszystko">Rozwiń wszystko</button>
+<button class="icon-btn" id="fullscreenBtn" aria-label="Pełny ekran">⛶</button>
+</div>
+<div class="bubble-resize-handle" id="resizeHandle"></div>
+</div>
+<div class="results-header">
+<div class="results-count" id="resultsCount"></div>
+<div class="results-scope" id="resultsScope"></div>
+</div>
+<div class="results-body">
+<aside class="filters-panel">
+<div class="filters-title">Jednostka</div>
+<div class="filters-search">
+<span class="icon-slot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm10 2-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<input id="deptSearchInput" placeholder="Szukaj jednostki" aria-label="Szukaj jednostki">
+</div>
+<div class="filters-group folder-tree" id="folderTree"></div>
+</aside>
+<div class="results-list" id="resultsList"></div>
+</div>
+</main>
+</div>
+<script src="employee-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
